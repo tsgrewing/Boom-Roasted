@@ -12,7 +12,17 @@ import "./assets/styles/style.css";
 
 function App() {
   return (
-
+    <Router>
+      <Nav />
+      <Switch>
+        <Route exact path={["/", "index"]} component={Splash}/>
+        <Route exact path={"history"} component={History}/>
+        <Route exact path={"inventory"} component={Inventory}/>
+        <Route exact path={"roast"} component={Roast}/>
+        <Route exact path={"social"} component={Social}/>
+      </Switch>
+      <Footer />
+    </Router>
   );
 }
 
