@@ -1,29 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Nav from "./components/Nav";
-import Footer from "./components/Footer";
-import Splash from "./pages/Splash";
-import History from "./pages/History";
-import Inventory from "./pages/Inventory";
-import Roast from "./pages/Roast";
-import Social from "./pages/Social";
-import "./assets/styles/style.css";
+import './App.css';
+import { Provider } from "react-redux";
+import store from "./store";
 
+import Nav from "./components/Layout/Nav";
+import Landing from "./components/Layout/Landing";
+import Login from "./components/Authorization/Login";
+import Register from "./components/Authorization/Register";
 
 function App() {
   return (
-    <Router>
-      <Nav />
-      <Switch>
-        <Route exact path={["/", "index"]} component={Splash}/>
-        <Route exact path={"history"} component={History}/>
-        <Route exact path={"inventory"} component={Inventory}/>
-        <Route exact path={"roast"} component={Roast}/>
-        <Route exact path={"social"} component={Social}/>
-      </Switch>
-      <Footer />
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <div className="App">
+          <Nav />
+          <Route exact path="/" component={Landing} />
+          <Route exact path="Register" component={Register} />
+          <Route exact path="Login" component={Login} />
+          <Landing />
+        </div>
+      </Router>
+    </Provider>
   );
-};
+}
 
 export default App;
