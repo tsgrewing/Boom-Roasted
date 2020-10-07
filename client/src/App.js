@@ -7,12 +7,18 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
 
-import Nav from "./components/Nav";
-import Landing from "./components/Landing";
+import Navbar from "./components/Navbar";
+import Landing from "./components/Landing/index";
 import Register from "./components/Authorization/Register";
 import Login from "./components/Authorization/Login";
 import PrivateRoute from "./components/Private-Route";
 import Dashboard from "./components/Dashboard";
+import Roast from "./pages/Roast";
+// import History from "./pages/History";
+import Inventory from "./pages/Inventory";
+// import Social from "./pages/Social";
+
+
 
 import "./App.css";
 
@@ -41,12 +47,14 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="App">
-            <Nav />
+            <Navbar />
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <PrivateRoute exact path="/Inventory" component={Inventory} />
+              <PrivateRoute exact path="/roast" component={Roast} />
             </Switch>
           </div>
         </Router>
