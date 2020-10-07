@@ -11,18 +11,24 @@ const CoffeeSchema = new Schema({
     type: String,
     required: true
   },
-  importer: {
+  country: {
     type: String,
     required: true
   },
-  Weight: {
-    type: Interger,
+  weight: {
+    type: Number,
     required: true
   },
-  Cost: {
-    type: Interger,
+  cost: {
+    type: Number,
+    required: true
+  },
+  user: {
+    type: String,
     required: true
   }
 });
 
-module.exports = Coffee = mongoose.model("coffees", CoffeeSchema);
+const Coffee = mongoose.model("coffee", CoffeeSchema)
+
+module.exports = Coffee;
