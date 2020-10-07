@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import store from "./store";
 
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Landing from "./components/Landing/index";
 import Register from "./components/Authorization/Register";
 import Login from "./components/Authorization/Login";
@@ -46,8 +47,8 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-          <div className="App">
-            <Navbar />
+            
+          <main className="App">
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
@@ -56,8 +57,10 @@ class App extends Component {
               <PrivateRoute exact path="/Inventory" component={Inventory} />
               <PrivateRoute exact path="/roast" component={Roast} />
             </Switch>
-          </div>
+            
+          </main>
         </Router>
+        <Footer />
       </Provider>
     );
   }

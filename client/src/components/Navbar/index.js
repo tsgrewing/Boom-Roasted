@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+
 class Navbar extends Component {
   onLogoutClick = e => {
     e.preventDefault();
@@ -9,6 +10,7 @@ class Navbar extends Component {
 
   render() {
     return (
+      <header>
       <div className="navbar-fixed">
         <nav className="z-depth-0">
           <div className="nav-wrapper white">
@@ -17,17 +19,13 @@ class Navbar extends Component {
               Boom, Roasted
               <span className="material-icons">local_cafe</span>
             </Link>
-            <button
-              onClick={this.onLogoutClick}
-              className="btn btn-large waves-effect waves-light hoverable blue accent-3 right"
-            >
-              Logout
-            </button>
+
           </div>
         </nav>
       </div>
+      </header>
     );
   }
-}
+};
 
-export default Navbar;
+export default (Navbar);

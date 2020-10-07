@@ -5,8 +5,8 @@ const passport = require("passport");
 
 const users = require("./routes/api/users");
 const coffees = require("./routes/api/coffees");
-// const roasts = require("./routes/api/roasts");
-// const messages = require("./routes/api/messages");
+const roasts = require("./routes/api/roasts");
+const messages = require("./routes/api/messages");
 
 const app = express();
 
@@ -39,8 +39,8 @@ require("./config/passport")(passport);
 // Routes
 app.use("/api/users", users);
 app.use("/api/coffees.js", coffees)
-// app.use("/api/messages.js", messages)
-// app.use("/api/roasts.js", roasts)
+app.use("/api/messages.js", messages)
+app.use("/api/roasts.js", roasts)
 
 const port = process.env.PORT || 5000;
 
