@@ -1,0 +1,10 @@
+.navbtn {
+    width: 10rem;
+    height: 100%;
+    background-color: transparent;
+    margin-bottom: 15px;
+}
+
+.nav-wrapper {
+    background-color: green;
+}

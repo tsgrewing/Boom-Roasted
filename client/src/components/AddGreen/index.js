@@ -3,18 +3,22 @@ import M from "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import axios from "axios";
+import InvTable from "../Inventory";
 
 
 class AddGreen extends Component {
 
   constructor() {
+
       super();
       this.state= {
         name: "", 
         process: "",
         country: "", 
         weight: "",
-        cost: ""
+        cost: "",
+
       }
   };
 
@@ -30,6 +34,7 @@ class AddGreen extends Component {
         console.log("Close Start");
       },
       onCloseEnd: () => {
+          this.props.tableUpdate();
         console.log("Close End");
       },
       inDuration: 250,
@@ -42,24 +47,22 @@ class AddGreen extends Component {
     M.Modal.init(this.Modal, options);
   }
 
-  onChangeName(e) {
-      this.setState({name:e.target.value})
-  };
-  onChangeProcess(e) {
-      this.setState({process:e.target.value})
-  };
-  onChangeCountry(e) {
-      this.setState({country:e.target.value})
-  };
-  onChangeWeight(e) {
-      this.setState({weight:e.target.value})
-  };
-  onChangeCost(e) {
-      this.setState({cost:e.target.value})
-  };
+  onChange = e => {
+      const state = this.state;
+      state[e.target.name] = e.target.value;
+      this.setState(state);
+  }
 
-  addCoffee = async() => {
-
+  addCoffee = e => {
+    e.preventDefault();
+    const user = this.props.auth.user.id;
+    const {name, process, country, cost, weight} = this.state;
+    console.log({ name, process, country, cost, weight, user })
+    axios.post("/api/coffees/", { name, process, country, cost, weight, user })
+        .then((res) => {
+            console.log(res)
+      });
+    
   };
 
   render() {
@@ -81,40 +84,42 @@ class AddGreen extends Component {
               <div className="modal-content">
                 <div className="row">
                     <h3>Add New Coffee</h3>
-                    <form className="col s12">
+                    <form className="col s12" onSubmit={this.addCoffee}>
                     <div className="row">
                         <div className="input-field col s6">
-                            <i className="material-icons prefix">local_offer</i>
-                            <input id="newName" type="text" className="validate" onChange={this.onChangeName.bind(this)} />
-                            <label for="newName">Coffee Name</label>
+                            <i class="prefix fas fa-tag"></i>
+                            <input id="newName" type="text" className="validate" name="name" onChange={this.onChange} />
+                            <label htmlFor="newName">Coffee Name</label>
                         </div>
                         <div className="input-field col s6">
-                            <i className="material-icons prefix">category</i>
-                            <input id="newProcess" type="text" className="validate" onChange={this.onChangeProcess.bind(this)} />
-                            <label for="newProcess">Process</label>
+                            <i class="prefix fas fa-shapes"></i>
+                            <input id="newProcess" type="text" className="validate" name="process" onChange={this.onChange} />
+                            <label htmlFor="newProcess">Process</label>
                         </div>
                     </div>
                     <div className="row">
                         <div className="input-field col s4">
-                            <i className="fas fa-ship"></i>
-                            <input id="newCountry" type="text" className="validate" onChange={this.onChangeCountry.bind(this)} />
-                            <label for="newCountry">Country</label>
+                            <i className="prefix fas fa-globe"></i>
+                            <input id="newCountry" type="text" className="validate" name="country" onChange={this.onChange} />
+                            <label htmlFor="newCountry">Country</label>
                         </div>
                         <div className="input-field col s4">
-                        <i className="fas fa-weight-hanging"></i>
-                            <input id="newWeight" type="text" className="validate" onChange={this.onChangeWeight.bind(this)} />
-                            <label for="newWeight">Weight in pounds</label>
+                        <i className="prefix fas fa-weight-hanging"></i>
+                            <input id="newWeight" type="text" className="validate" name="weight" onChange={this.onChange} />
+                            <label htmlFor="newWeight">Weight in pounds</label>
                         </div>
                         <div className="input-field col s4">
-                            <i className="material-icons prefix">attach_money</i>
-                            <input id="newCost" type="text" className="validate" onChange={this.onChangeCost.bind(this)} />
-                            <label for="newCost">Cost per pound</label>
+                            <i class="prefix fas fa-dollar-sign"></i>
+                            <input id="newCost" type="text" className="validate" name="cost" onChange={this.onChange} />
+                            <label htmlFor="newCost">Cost per pound</label>
                         </div>
                     </div>
                     </form>
-                    <button className="btn waves-effect waves-light" type="submit" name="action" onClick={this.addCoffee.bind(this)}>Submit
-                    <i className="material-icons right">add_box</i>
-                    </button>
+                    <div className="center-align">
+                        <button className="center-align btn waves-effect waves-light modal-close" type="submit" onClick={this.addCoffee} name="action">Submit
+                        <i className="material-icons right">add_box</i>
+                        </button>
+                    </div>
                 </div>
               </div>
             </div>

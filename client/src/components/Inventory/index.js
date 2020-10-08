@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
 import PropTypes from "prop-types"
+import AddGreen from "../AddGreen";
 
 
 class InvTable extends Component {
@@ -19,6 +20,10 @@ class InvTable extends Component {
         const green = await axios.get(`/api/coffees/${userInv}`);
         this.setState({inventory: green.data})
         console.log(green.data)
+    }
+
+    tableUpdate = () => {
+        this.getInventory();
     }
 
     render() {
@@ -51,6 +56,8 @@ class InvTable extends Component {
                     }
                     </tbody>
                 </table>
+                <AddGreen 
+                tableUpdate={this.tableUpdate}/>
             </div>
         )
     }

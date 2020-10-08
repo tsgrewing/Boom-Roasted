@@ -10,12 +10,9 @@ class Logout extends Component {
   
     render() {
       return (
-        <button
-        onClick={this.onLogoutClick}
-        className="btn btn-large waves-effect waves-light hoverable blue accent-3 right"
-        >
-        Logout
-        </button>
+          
+            <button className="navbtn" title="Logout" onClick={this.onLogoutClick}><i class="fas fa-sign-out-alt"></i></button>
+          
       );
     }
   };

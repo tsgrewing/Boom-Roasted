@@ -6,3 +6,9 @@ body {
 main {
     flex: 1 0 auto;
 }
+
+.main-wrapper {
+    overflow: auto;
+    margin-top: 15px;
+    height: "75vh" 
+}
