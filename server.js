@@ -38,9 +38,9 @@ require("./config/passport")(passport);
 
 // Routes
 app.use("/api/users", users);
-app.use("/api/coffees.js", coffees)
-app.use("/api/messages.js", messages)
-app.use("/api/roasts.js", roasts)
+app.use("/api/coffees", coffees)
+app.use("/api/messages", messages)
+app.use("/api/roasts", roasts)
 
 const port = process.env.PORT || 5000;
 

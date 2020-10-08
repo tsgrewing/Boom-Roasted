@@ -9,6 +9,13 @@ router.get('/', (req, res) => {
   .catch(err => res.json(err))
 })
 
+// get all roasts from user
+router.get('/:user', (req, res) => {
+    Roast.findById(req.params.user)
+    .then(batch => res.json(batch))
+    .catch(err => res.json(err))
+});
+
 // get one roast
 router.get('/:id', (req, res) => {
     Roast.findById(req.params.id)

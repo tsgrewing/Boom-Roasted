@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import Navbar from "../components/Navbar";
+import Logout from "../components/Logout"
 
 class Roast extends Component {
   render() {
     const { user } = this.props.auth;
 
     return (
+      <div>
+        <Navbar />
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
           <div className="landing-copy col s12 center-align">
@@ -19,12 +23,13 @@ class Roast extends Component {
           </div>
         </div>
       </div>
+      <Logout />
+      </div>
     );
   }
 }
 
 Roast.propTypes = {
-  logoutUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 };
 

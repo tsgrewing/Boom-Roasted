@@ -1,45 +1,43 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { logoutUser } from "../actions/authActions";
+import Logout from "../components/Logout";
+import InvTable from "../components/Inventory";
+import AddGreen from "../components/AddGreen";
 
 class Inventory extends Component {
-  onLogoutClick = e => {
-    e.preventDefault();
-    this.props.logoutUser();
-  };
+
 
   render() {
     const { user } = this.props.auth;
 
     return (
+    <div>
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
           <div className="landing-copy col s12 center-align">
             <h4>
               <b>Current Inventory</b>
             </h4>
-            <button
-              style={{
-                width: "150px",
-                borderRadius: "3px",
-                letterSpacing: "1.5px",
-                marginTop: "1rem"
-              }}
-              onClick={this.onLogoutClick}
-              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-            >
-              Logout
-            </button>
           </div>
+            <InvTable />
+            <a className="waves-effect waves-light modal-trigger" href="#modal1">
+            <p className="valign-wrapper center-align">Add Coffee<span className="material-icons green-text ">add_circle</span></p>
+            </a>
+            <div id="modal1" className="modal">
+              <div className="modal-content">
+              <AddGreen />
+              </div>
+            </div>
         </div>
       </div>
+      <Logout />
+    </div>
     );
   }
 }
 
 Inventory.propTypes = {
-  logoutUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 };
 
@@ -47,7 +45,4 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(
-  mapStateToProps,
-  { logoutUser }
-)(Inventory);
+export default connect(mapStateToProps)(Inventory);

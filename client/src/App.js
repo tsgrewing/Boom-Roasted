@@ -15,9 +15,9 @@ import Login from "./components/Authorization/Login";
 import PrivateRoute from "./components/Private-Route";
 import Dashboard from "./components/Dashboard";
 import Roast from "./pages/Roast";
-// import History from "./pages/History";
+import History from "./pages/History";
 import Inventory from "./pages/Inventory";
-// import Social from "./pages/Social";
+import Social from "./pages/Social";
 
 
 
@@ -54,8 +54,10 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
-              <PrivateRoute exact path="/Inventory" component={Inventory} />
+              <PrivateRoute exact path="/inventory" component={Inventory} />
               <PrivateRoute exact path="/roast" component={Roast} />
+              <PrivateRoute exact path="/social" component={Social} />
+              <PrivateRoute exact path="/history" component={History} />
             </Switch>
             
           </main>

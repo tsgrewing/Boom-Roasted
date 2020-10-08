@@ -9,6 +9,13 @@ router.get('/', (req, res) => {
   .catch(err => res.json(err))
 })
 
+// get all coffees from user
+router.get('/:user', (req, res) => {
+  Coffee.find({user: req.params.user})
+  .then(coffees => res.json(coffees))
+  .catch(err => res.json(err))
+})
+
 // add a coffee to inventory
 router.post('/', (req, res) => {
   Coffee.create(req.body)
