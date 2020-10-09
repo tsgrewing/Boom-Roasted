@@ -41,7 +41,8 @@ class InvTable extends Component {
                     </tr>
                     </thead>
                     <tbody>
-                    {
+                    {this.state.inventory 
+                    ?
                     this.state.inventory.map(coffee => (
                         <tr>
                             <td>{coffee.name}</td>
@@ -53,9 +54,12 @@ class InvTable extends Component {
                             {/* Add buttons to delete coffee or adjust weight */}
                         </tr>
                     ))
+                    :
+                    <tr><td>No Coffees in Inventory</td></tr>
                     }
                     </tbody>
                 </table>
+                    
                 <AddGreen 
                 tableUpdate={this.tableUpdate}/>
             </div>

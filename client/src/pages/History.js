@@ -2,9 +2,27 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import RoastHistory from "../components/RoastHistory";
+import PastDetails from "../components/PastDetails";
+import axios from "axios";
 
 
 class History extends Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.state= {
+  //     batchDetails: {}
+  //   };
+  //   this.loadDetails = this.loadDetails.bind(this);
+  // }
+
+  state= {
+    roastDetails:{}
+  }
+
+  loadDetails = async(id) => {
+    const selectedRoast = await axios.get("/api/roasts/id/"+ id)
+    this.setState({roastDetails: selectedRoast.data})
+  };
 
   render() {
 
@@ -16,7 +34,12 @@ class History extends Component {
               <b>Roast History</b>
             </h4>
           </div>
-          <RoastHistory />
+          <div className="row">
+          <RoastHistory 
+          loadDetails={this.loadDetails}/>
+          <PastDetails 
+          roastData={this.state.roastDetails}/>
+          </div>
         </div>
       </div>
     );
@@ -24,7 +47,7 @@ class History extends Component {
 }
 
 History.propTypes = {
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => ({
