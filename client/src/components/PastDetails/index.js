@@ -3,14 +3,43 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Line } from 'react-chartjs-2';
 import "chartjs-adapter-moment";
+import axios from "axios";
 
 
 class PastDetails extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            notes: this.props.notes
+        }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSave = this.handleSave.bind(this);
+    }
+
+
+    handleChange(e) {
+        // console.log(e.target.value)
+        this.setState({notes: e.target.value}, () => {
+            console.log(this.state.notes)
+        });  
+    }
+    
+    handleSave(e) {
+        e.preventDefault();
+        console.log("Trying")
+        axios.put(`/api/roasts/${this.props.roastData._id}`, {notes: e.target.value})
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+    }
+
+    componentDidMount() {
+        this.setState({notes: this.props.notes})
+    }
     
     render() {
+        console.log(this.state.notes)
         const roastData = [this.props.roastData];
         const selectedRoast = roastData[0];
-        
         
         if (roastData[0].length !== 0){
             // data to render the line chart
@@ -49,12 +78,13 @@ class PastDetails extends Component {
             
             return (
                 <div className="HistTableWrapper col s-8">
+                    {/* chart to display the roast curve of the selected batch */}
                     <div className="row past-chart-wrapper">
                         <Line
                         data={chartData} />
                     </div>
                     <div className="row past-table-wrapper">
-                        <table className="col s-8 centered bordered past-table">
+                        <table className="col s-4 centered bordered past-table">
                             <thead>
                                 <tr>
                                     <th>Coffee Name</th>
@@ -65,23 +95,11 @@ class PastDetails extends Component {
                                     <th >First Crack</th>
                                     <th >Drop</th>
                                 </tr>
-                                {/* <tr>
-                                    <th>Time</th>
-                                    <th>Temp</th>
-                                    <th>Time</th>
-                                    <th>Temp</th>
-                                    <th>Time</th>
-                                    <th>Temp</th>
-                                    <th>Time</th>
-                                    <th>Temp</th>
-                                    <th>Time</th>
-                                    <th>Temp</th>
-                                </tr> */}
                             </thead>
-                            
+                                {/* Mapping isn't needed for a single roast, but will come in handy for future development. Eventually add a comparison feature that would display two datasets */}
                                 {
                                 roastData.map(data => (
-                                    <tbody>
+                                    <tbody key="detailTable">
                                     <tr key="selectedRoastRow">
                                         <th rowSpan="2" key="{data.name}">{data.name}</th>
                                         <th key="time">Time</th>
@@ -99,10 +117,22 @@ class PastDetails extends Component {
                                         <td key="{data.first.temp}">{data.first.temp}&deg;F</td>
                                         <td key="{data.drop.temp}">{data.drop.temp}&deg;F</td>
                                     </tr>
+                                    <tr>
+                                        <th key="notes">Notes</th>
+                                        <td key="noteArea" colSpan="6">
+                                            
+                                        <form key="noteForm" onSubmit={ e => this.handleSave(e) }>
+                                            {/* Notes container to view and add tasting/general notes */}
+                                            <input type="text" id="roast-notes" value={ this.state.notes } style={{resize: "none"}} onChange={e => this.handleChange(e)}></input>
+                                            <button type="submit" className="waves-effect waves-light btn" onClick={e => this.handleSave(e)}>save</button>
+                                            </form>
+                                        </td>
+                                        <td key="saveBtn">
+                                        </td>
+                                    </tr>
                                     </tbody>
                                 ))
                                 }
-                            
                         </table>
                     </div>
                 </div>

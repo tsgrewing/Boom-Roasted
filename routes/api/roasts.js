@@ -32,8 +32,11 @@ router.post('/', (req, res) => {
 
 // update a roast's notes
 router.put('/:id', (req, res) => {
-  Roast.findOneAndUpdate({ _id: req.body.id }, req.body)
-  .then()
+  console.log(req.params.id)
+  console.log(req.body)
+  Roast.updateOne({ _id: req.params.id }, req.body)
+  .then(roast => res.json(roast))
+  .catch(err => res.status(422).json(err))
 })
 
 // delete a roast by id

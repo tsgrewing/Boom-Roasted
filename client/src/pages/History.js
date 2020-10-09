@@ -16,17 +16,25 @@ class History extends Component {
   // }
 
   state= {
-    roastDetails:[]
+    roastDetails:[],
+    roastNotes: ''
   }
+
+
 
   loadDetails = async(id) => {
     const selectedRoast = await axios.get("/api/roasts/id/"+ id)
-    this.setState({roastDetails: selectedRoast.data})
+    this.setState({
+      roastDetails: selectedRoast.data,
+      roastNotes: selectedRoast.data.notes
+    })
+    console.log(this.state)
     
   };
 
   render() {
-
+    const roastDetails = this.state.roastDetails;
+    const roastNotes = this.state.roastNotes;
     return (
       <div className="container valign-wrapper main-wrapper">
         <div className="row">
@@ -38,8 +46,11 @@ class History extends Component {
           <div className="row">
           <RoastHistory 
           loadDetails={this.loadDetails}/>
+          {roastNotes &&
           <PastDetails 
-          roastData={this.state.roastDetails}/>
+          roastData={roastDetails}
+          notes={roastNotes}/>
+          }
           </div>
         </div>
       </div>
