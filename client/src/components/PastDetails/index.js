@@ -5,10 +5,9 @@ import PropTypes from "prop-types";
 class PastDetails extends Component {
     
     render() {
-        const roastData = this.props.roastData;
-        Object.keys(roastData).map(key => ({[key]: roastData[key]}))
-        console.log(Object.keys(roastData).map(key => ({[key]: roastData[key]})))
-        if (roastData){
+        const roastData = [this.props.roastData];
+        if (roastData[0].length !== 0){
+            console.log(roastData.[0].charge)
             return (
                     
                 <div className="HistTableWrapper col s-8">
@@ -42,21 +41,25 @@ class PastDetails extends Component {
                                 </tr>
                             </thead>
                             <tbody>
-                                {
-                            
-                            // <tr>
-                                    //     <td>{data.charge.time}</td>
-                                    //     <td>{data.charge.temp}</td>
-                                    //     <td>{data.turn.time}</td>
-                                    //     <td>{data.turn.temp}</td>
-                                    //     <td>{data.change.time}</td>
-                                    //     <td>{data.change.temp}</td>
-                                    //     <td>{data.first.time}</td>
-                                    //     <td>{data.first.temp}</td>
-                                    //     <td>{data.drop.time}</td>
-                                    //     <td>{data.drop.temp}</td>
-                                    // </tr>
-                                
+                                {roastData
+                                ?
+                                roastData.map(data => (
+                                    <tr>
+                                        <td>{data.name}</td>
+                                        <td>{data.charge.time}</td>
+                                        <td>{data.charge.temp}</td>
+                                        <td>{data.turn.time}</td>
+                                        <td>{data.turn.temp}</td>
+                                        <td>{data.change.time}</td>
+                                        <td>{data.change.temp}</td>
+                                        <td>{data.first.time}</td>
+                                        <td>{data.first.temp}</td>
+                                        <td>{data.drop.time}</td>
+                                        <td>{data.drop.temp}</td>
+                                    </tr>
+                                ))
+                                :
+                                <tr><td></td></tr>
                                 }
                             </tbody>
                         </table>

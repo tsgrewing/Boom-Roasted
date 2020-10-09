@@ -16,12 +16,13 @@ class History extends Component {
   // }
 
   state= {
-    roastDetails:{}
+    roastDetails:[]
   }
 
   loadDetails = async(id) => {
     const selectedRoast = await axios.get("/api/roasts/id/"+ id)
     this.setState({roastDetails: selectedRoast.data})
+    
   };
 
   render() {
