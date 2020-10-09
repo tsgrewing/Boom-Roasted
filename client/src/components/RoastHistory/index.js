@@ -39,12 +39,12 @@ class RoastHistory extends Component {
                         {/* separate this into a new component? */}
                     {historyList
                     ? historyList.map(batch => (
-                        <tr>
+                        <tr key={batch._id + "row"}>
                             {/* <td>{batch.date}</td> */}
-                            <td>{batch.name}</td>
-                            <td>{batch.drop.temp}&deg;F</td>
-                            <td>{batch.drop.time}</td>
-                            <td><button className="detailBtn" onClick={() => this.props.loadDetails(batch._id)}>Details</button></td>
+                            <td key={batch.name}>{batch.name}</td>
+                            <td key={batch.drop.temp}>{batch.drop.temp}&deg;F</td>
+                            <td key={batch.drop.time}>{batch.drop.time}</td>
+                            <td key={batch._id}><button className="detailBtn" onClick={() => this.props.loadDetails(batch._id)}>Details</button></td>
                         </tr>
                     ))
                     : <tr><td>Roast Some Coffee!</td></tr>
