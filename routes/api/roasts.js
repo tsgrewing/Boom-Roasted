@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 
 // get all roasts from user
 router.get('/:user', (req, res) => {
-    Roast.findById(req.params.user)
+    Roast.find({user: req.params.user})
     .then(batch => res.json(batch))
     .catch(err => res.json(err))
 });

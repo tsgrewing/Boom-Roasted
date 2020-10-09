@@ -8,12 +8,44 @@ const RoastSchema = new Schema({
     required: true
   },
   weight: {
-    type: String,
+    type: Number,
     required: true
   },
   events: {
     type: String,
     required: true
+  },
+  first: {
+    time: {
+      type: String
+    },
+    temp: {
+      type: String
+    }
+  },
+  drop: {
+    time: {
+      type: String
+    },
+    temp: {
+      type: String
+    }
+  },
+  change: {
+    time: {
+      type: String
+    },
+    temp: {
+      type: String
+    }
+  },
+  turn: {
+    time: {
+      type: String
+    },
+    temp: {
+      type: String
+    }
   },
   date: {
     type: Date,

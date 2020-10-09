@@ -11,6 +11,12 @@ class Dashboard extends Component {
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
           <div className="landing-copy col s12 center-align">
+            <h4>
+              <b>Hey there,{user.name.split(" ")[0]}</b>
+              <p className="flow-text grey-text text-darken-1">
+                You're ready to roast
+              </p>
+            </h4>
             {/* <RecentRoasts user={user.id}/>
             <RecentMsg user={user.id}/>
             <RecentInv user={user.id}/> */}

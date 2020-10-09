@@ -4,8 +4,6 @@ import "materialize-css/dist/css/materialize.min.css";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import axios from "axios";
-import InvTable from "../Inventory";
-
 
 class AddGreen extends Component {
 
@@ -69,9 +67,9 @@ class AddGreen extends Component {
     return (
         <div>
             {/* add green link to open model with add green form */}
-            <a className="waves-effect waves-light modal-trigger" data-target="modal1">
+            <button className="waves-effect waves-light modal-trigger" data-target="modal1" >
             <p className="valign-wrapper center-align">Add Coffee<span className="material-icons green-text ">add_circle</span></p>
-            </a>
+            </button>
 
             {/* modal with add green form */}
             <div

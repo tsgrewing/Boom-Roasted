@@ -19,16 +19,16 @@ class Navbar extends Component {
             <button className="navbtn" title="Home"><i className="fas fa-home"></i></button>
             </Link>
             <Link to="/roast" style={{fontFamily: "monospace"}} className="col s5 black-text">
-            <button className="navbtn" title="Roast"><i class="fas fa-fire"></i></button>
+            <button className="navbtn" title="Roast"><i className="fas fa-fire"></i></button>
             </Link>
             <Link to="/history" style={{fontFamily: "monospace"}} className="col s5 black-text">
-            <button className="navbtn" title="History"><i class="fas fa-history"></i></button>
+            <button className="navbtn" title="History"><i className="fas fa-history"></i></button>
             </Link>
             <Link to="/inventory" style={{fontFamily: "monospace"}} className="col s5 black-text">
-            <button className="navbtn" title="Inventory"><i class="fas fa-boxes"></i></button>
+            <button className="navbtn" title="Inventory"><i className="fas fa-boxes"></i></button>
             </Link>
             <Link to="/social" style={{fontFamily: "monospace"}} className="col s5 black-text">
-            <button className="navbtn" title="Social"> <i class="fas fa-users"></i></button>
+            <button className="navbtn" title="Social"> <i className="fas fa-users"></i></button>
             </Link>
             {isLoggedIn && <Logout />}
 
