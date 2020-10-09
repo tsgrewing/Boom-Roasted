@@ -19,7 +19,7 @@ class Dashboard extends Component {
             </h4>
             {/* <RecentRoasts user={user.id}/>
             <RecentMsg user={user.id}/>
-            <RecentInv user={user.id}/> */}
+            <CurrentInv user={user.id}/> */}
           </div>
         </div>
       </div>

@@ -9,7 +9,7 @@ class RoastHistory extends Component {
         history: [],
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.getHistory()
     };
 
@@ -24,7 +24,7 @@ class RoastHistory extends Component {
         const historyList = this.state.history;
 
         return (
-            <div className="HistTableWrapper col s-4">
+            <div className="HistTableWrapper col s-4 left-align">
                 <table className="centered highlight bordered">
                     <thead>
                     <tr>
