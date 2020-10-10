@@ -9,9 +9,11 @@ import axios from "axios";
 class History extends Component {
   // constructor(props) {
   //   super(props);
+
   //   this.state= {
-  //     batchDetails: {}
-  //   };
+  //     roastDetails:[],
+  //     roastNotes: ''
+  //   }
   //   this.loadDetails = this.loadDetails.bind(this);
   // }
 
@@ -28,13 +30,14 @@ class History extends Component {
       roastDetails: selectedRoast.data,
       roastNotes: selectedRoast.data.notes
     })
-    console.log(this.state)
+    console.log(this.state.roastDetails.notes)
     
   };
 
   render() {
     const roastDetails = this.state.roastDetails;
-    const roastNotes = this.state.roastNotes;
+    const roastNotes = roastDetails.notes;
+    console.log(roastDetails)
     return (
       <div className="container valign-wrapper main-wrapper">
         <div className="row">
@@ -46,10 +49,11 @@ class History extends Component {
           <div className="row">
           <RoastHistory 
           loadDetails={this.loadDetails}/>
-          {roastNotes &&
+          {roastDetails.length !== 0 &&
           <PastDetails 
           roastData={roastDetails}
-          notes={roastNotes}/>
+          notes={roastNotes}
+          />
           }
           </div>
         </div>

@@ -12,35 +12,29 @@ class PastDetails extends Component {
         this.state = {
             notes: this.props.notes
         }
-        this.handleChange = this.handleChange.bind(this);
+        // this.handleChange = this.handleChange.bind(this);
         this.handleSave = this.handleSave.bind(this);
     }
 
-
-    handleChange(e) {
-        // console.log(e.target.value)
-        this.setState({notes: e.target.value}, () => {
-            console.log(this.state.notes)
-        });  
-    }
+    
     
     handleSave(e) {
         e.preventDefault();
-        console.log("Trying")
-        axios.put(`/api/roasts/${this.props.roastData._id}`, {notes: e.target.value})
-        .then(res => console.log(res))
+        axios.put(`/api/roasts/${this.props.roastData._id}`, {notes: this.state.notes})
+        .then(res => this.setState({notes: ''}))
         .catch(err => console.log(err))
     }
 
-    componentDidMount() {
-        this.setState({notes: this.props.notes})
-    }
+    // componentDidMount() {
+    //     this.setState({notes: this.props.notes})
+
+    //     console.log(this.state.notes)
+    // }
     
     render() {
-        console.log(this.state.notes)
         const roastData = [this.props.roastData];
         const selectedRoast = roastData[0];
-        
+
         if (roastData[0].length !== 0){
             // data to render the line chart
             const chartData = {
@@ -120,19 +114,23 @@ class PastDetails extends Component {
                                     <tr>
                                         <th key="notes">Notes</th>
                                         <td key="noteArea" colSpan="6">
-                                            
-                                        <form key="noteForm" onSubmit={ e => this.handleSave(e) }>
+                                        {selectedRoast.notes &&
+                                        <form key="noteForm" onSubmit={ this.handleSave }>
                                             {/* Notes container to view and add tasting/general notes */}
-                                            <input type="text" id="roast-notes" value={ this.state.notes } style={{resize: "none"}} onChange={e => this.handleChange(e)}></input>
-                                            <button type="submit" className="waves-effect waves-light btn" onClick={e => this.handleSave(e)}>save</button>
+                                            <textarea type="text" name="roast-notes" id="roast-notes" value={ this.state.notes } style={{resize: "none"}} 
+                                            onChange={e => {
+                                                this.setState({ notes: e.target.value})
+                                            }} ></textarea>
+                                            <button type="submit" className="waves-effect waves-light btn" >save</button>
                                             </form>
+                                        }
                                         </td>
-                                        <td key="saveBtn">
-                                        </td>
+
                                     </tr>
                                     </tbody>
                                 ))
                                 }
+                                
                         </table>
                     </div>
                 </div>
