@@ -16,7 +16,7 @@ class PastDetails extends Component {
     }
     
     componentWillReceiveProps(nextProps) {
-        if(this.props.notes != nextProps.notes) {
+        if(this.props.notes !== nextProps.notes) {
           this.setState({
             notes: nextProps.notes
           });
@@ -26,7 +26,7 @@ class PastDetails extends Component {
     handleSave(e) {
         e.preventDefault();
         axios.put(`/api/roasts/${this.props.roastData._id}`, {notes: this.state.notes})
-        .then(res => this.setState({notes: ''}))
+        .then(res => console.log(res.data))
         .catch(err => console.log(err))
     }
     
@@ -124,7 +124,6 @@ class PastDetails extends Component {
                                             </form>
                                         }
                                         </td>
-
                                     </tr>
                                     </tbody>
                                 ))
