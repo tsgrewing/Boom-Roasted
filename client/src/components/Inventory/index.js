@@ -44,13 +44,13 @@ class InvTable extends Component {
                     {this.state.inventory 
                     ?
                     this.state.inventory.map(coffee => (
-                        <tr>
-                            <td>{coffee.name}</td>
-                            <td>{coffee.process}</td>
-                            <td>{coffee.country}</td>
-                            <td>{coffee.weight} lbs</td>
-                            <td>${coffee.cost}</td>
-                            <td>${coffee.cost * coffee.weight}</td>
+                        <tr key={coffee._id}>
+                            <td key={coffee.name}>{coffee.name}</td>
+                            <td key={coffee.process}>{coffee.process}</td>
+                            <td key={coffee.country}>{coffee.country}</td>
+                            <td key={coffee.weight}>{coffee.weight} lbs</td>
+                            <td key={coffee.cost}>${coffee.cost}</td>
+                            <td key="totalCost">${coffee.cost * coffee.weight}</td>
                             {/* Add buttons to delete coffee or adjust weight */}
                         </tr>
                     ))
