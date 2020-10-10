@@ -12,24 +12,23 @@ class PastDetails extends Component {
         this.state = {
             notes: this.props.notes
         }
-        // this.handleChange = this.handleChange.bind(this);
         this.handleSave = this.handleSave.bind(this);
     }
+    
+    componentWillReceiveProps(nextProps) {
+        if(this.props.notes != nextProps.notes) {
+          this.setState({
+            notes: nextProps.notes
+          });
+        }
+      }
 
-    
-    
     handleSave(e) {
         e.preventDefault();
         axios.put(`/api/roasts/${this.props.roastData._id}`, {notes: this.state.notes})
         .then(res => this.setState({notes: ''}))
         .catch(err => console.log(err))
     }
-
-    // componentDidMount() {
-    //     this.setState({notes: this.props.notes})
-
-    //     console.log(this.state.notes)
-    // }
     
     render() {
         const roastData = [this.props.roastData];
