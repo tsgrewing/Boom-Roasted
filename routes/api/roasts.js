@@ -34,7 +34,7 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
   console.log(req.params.id)
   console.log(req.body)
-  Roast.updateOne({ _id: req.params.id }, req.body)
+  Roast.findByIdAndUpdate({ _id: req.params.id }, req.body)
   .then(roast => res.json(roast))
   .catch(err => res.status(422).json(err))
 })

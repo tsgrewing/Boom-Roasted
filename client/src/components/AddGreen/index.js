@@ -85,12 +85,12 @@ class AddGreen extends Component {
                     <form className="col s12" onSubmit={this.addCoffee}>
                     <div className="row">
                         <div className="input-field col s6">
-                            <i class="prefix fas fa-tag"></i>
+                            <i className="prefix fas fa-tag"></i>
                             <input id="newName" type="text" className="validate" name="name" onChange={this.onChange} />
                             <label htmlFor="newName">Coffee Name</label>
                         </div>
                         <div className="input-field col s6">
-                            <i class="prefix fas fa-shapes"></i>
+                            <i className="prefix fas fa-shapes"></i>
                             <input id="newProcess" type="text" className="validate" name="process" onChange={this.onChange} />
                             <label htmlFor="newProcess">Process</label>
                         </div>
@@ -107,7 +107,7 @@ class AddGreen extends Component {
                             <label htmlFor="newWeight">Weight in pounds</label>
                         </div>
                         <div className="input-field col s4">
-                            <i class="prefix fas fa-dollar-sign"></i>
+                            <i className="prefix fas fa-dollar-sign"></i>
                             <input id="newCost" type="text" className="validate" name="cost" onChange={this.onChange} />
                             <label htmlFor="newCost">Cost per pound</label>
                         </div>
