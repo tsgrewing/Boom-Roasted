@@ -13,12 +13,12 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // Bodyparser middleware
-app.use(
-  bodyParser.urlencoded({
-    extended: false
-  })
-);
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
 // DB Config
 const db = require("./config/keys").mongoURI;
@@ -56,8 +56,8 @@ app.use("/api/roasts", roasts)
 //   console.log(NODE_ENV)
 // }
 
-app.get('*', (request, response) => {
-	response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-});
+// app.get('*', (request, response) => {
+// 	response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+// });
 
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));
