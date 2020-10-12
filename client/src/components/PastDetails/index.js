@@ -42,7 +42,7 @@ class PastDetails extends Component {
                     {
                         label: selectedRoast.name,
                         fill: false,
-                        lineTension: 0.1,
+                        lineTension: 0.25,
                         backgroundColor: 'rgba(75,192,192,0.4)',
                         borderColor: 'rgba(75,192,192,1)',
                         borderCapStyle: 'butt',

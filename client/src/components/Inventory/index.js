@@ -7,9 +7,12 @@ import AddGreen from "../AddGreen";
 
 class InvTable extends Component {
     
-    state = {
-        inventory: []
-    }
+    constructor(props) {
+        super(props);
+        this.state = {
+            inventory: []
+        }
+    };
 
     componentDidMount() {
         this.getInventory()
@@ -27,6 +30,7 @@ class InvTable extends Component {
     }
 
     render() {
+        console.log(this.state.inventory)
         return (
             <div className="InvTableWrapper">
                 <table className="centered highlight">
@@ -72,7 +76,8 @@ InvTable.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    auth: state.auth
+    auth: state.auth,
+    inventory: state.inventory
   });
   
 export default connect(mapStateToProps)(InvTable);
