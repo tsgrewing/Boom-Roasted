@@ -17,3 +17,8 @@ main {
     margin-top: 15px;
     height: "75vh" 
 }
+html {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
