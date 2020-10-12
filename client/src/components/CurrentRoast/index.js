@@ -7,8 +7,9 @@ import Timer from "react-compound-timer";
 import M from "materialize-css";
 import './style.css';
 import RoastChart from "../RoastChart";
-import CurrentNotes from "../CurrentNotes"
-import StartRoastForm from "../StartRoastForm"
+import CurrentNotes from "../CurrentNotes";
+import StartRoastForm from "../StartRoastForm";
+import RoastForm from "../RoastForm";
 
 
 class CurrentRoast extends Component {
@@ -69,11 +70,11 @@ class CurrentRoast extends Component {
         console.log(this.state.notes)
     }
 
-    eventSubmit(e, time) {
+    eventSubmit(event, time) {
         var mins = Math.floor(time / 60000);
         var secs = ((time % 60000) / 1000).toFixed(0);
         const eventTime =  mins + ":" + (secs < 10 ? '0' : '') + secs
-        const eventName = e.target.value;
+        const eventName = event;
         const currentTemp = this.state.currentTemp
         if (eventName === "drop"){
             this.setState({ finished: true,
@@ -155,73 +156,20 @@ class CurrentRoast extends Component {
                 />
                 :
                 <div className="row">
-
-                {!this.state.finished
-                ?
-                <div className="col s6">
-                <fieldset>
-                    <legend>Roast Event</legend>
-                        <form id="roastEventsForm" onSubmit={ this.cancelSubmit }>
-                            <div className="row center-align">
-                                <div className="input-field col s6">
-                                    <label htmlFor="eventTemp">Event Temp</label>
-                                <input type="number" className="col s-12" value={this.state.currentTemp} onChange={ this.tempChange } name="eventTemp"></input>
-
-                                </div>
-                            
-                            <div className="btnCol col s6 center-align input-field">
-                                <div className="row center-align">
-                                {(this.state.turn === 0)
-                                ?
-                                <button className="eventBtn waves-effect waves-light btn " type="button" value="turn" 
-                                    onClick={(e) => {
-                                        const time = getTime();
-                                        this.eventSubmit(e, time)
-                                    }}
-                                >Turn</button>
-                                :
-                                (this.state.change === 0)
-                                ?
-                                <button className="eventBtn waves-effect waves-light btn  " type="button" value="change" 
-                                    onClick={(e) => {
-                                        const time = getTime();
-                                        this.eventSubmit(e, time)
-                                    }}
-                                >Color Change</button>
-                                :
-                                this.state.first === 0
-                                ?
-                                <button className="eventBtn waves-effect waves-light btn " type="button" value="first" 
-                                    onClick={(e) => {
-                                        const time = getTime();
-                                        this.eventSubmit(e, time)
-                                    }}
-                                >First Crack</button>
-                                :
-                                <button className="eventBtn waves-effect waves-light btn " type="button" value="drop" 
-                                    onClick={(e) => {
-                                        const time = getTime();
-                                        stop();
-                                        reset();
-                                        this.eventSubmit(e, time)
-                                    }}
-                                >
-                                Drop</button>
-                                }
-                                </div>
-                            </div>
-                            </div>
-                        </form>
-                </fieldset>
-                </div>
-                :
-                <div className="col s-6 center-align valign-center">
-                    <fieldset>
-                        <legend>Submit Roast</legend>
-                        <button type="button" className="waves-effect waves-light btn" onClick={ this.saveRoast }>Save Roast</button>
-                    </fieldset>
-                </div>
-                }
+                <RoastForm
+                cancelSubmit={this.cancelSubmit}
+                finished={this.state.finished}
+                currentTemp={this.state.currentTemp}
+                tempChange={this.tempChange}
+                turn={this.state.turn}
+                change={this.state.change}
+                first={this.state.first}
+                eventSubmit={this.eventSubmit}
+                stop={stop}
+                reset={reset}
+                getTime={getTime}
+                saveRoast={this.saveRoast}
+                />
 
                 {/* Form to add Notes to roast */}
                 <CurrentNotes
@@ -229,8 +177,8 @@ class CurrentRoast extends Component {
                 notes={this.state.notes}
                 saveNotes={this.saveNotes} 
                 />
-            </div>
-            }
+                </div>
+                }
 
                 {/* Time Display */}
                 <div id="timerWrapper" className="row center-align">
