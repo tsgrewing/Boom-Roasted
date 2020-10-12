@@ -15,15 +15,10 @@ class RoastChart extends Component {
         }
     };
 
-    componentDidMount() {
-        console.log(this.props)
-    }
-
+    // check to see if there is a new event to add to the chart
     componentWillReceiveProps(nextProps) {
-
         if(this.props.labels.length > this.state.eventCount) {
           const addEvent = this.state.eventCount + 1;
-          console.log(addEvent)
           this.setState({
             labels: nextProps.labels,
             points: nextProps.points,
@@ -33,12 +28,10 @@ class RoastChart extends Component {
         }
         else{
             this.setState({shouldRedraw: false})
-            console.log(this.props)
         }
       }
 
     render() {
-        console.log(this.state)
         let chartDetails = {
             labels: this.props.labels,
             datasets: [
@@ -67,13 +60,12 @@ class RoastChart extends Component {
         }
 
         return (
-            <>
-
-            <Line
-             data={chartDetails}
-             redraw={this.state.shouldRedraw} 
-             /> 
-</>
+            <div className="row current-chart-wrapper">
+                <Line
+                data={chartDetails}
+                redraw={this.state.shouldRedraw} 
+                /> 
+            </div>
         )
     }
 }
