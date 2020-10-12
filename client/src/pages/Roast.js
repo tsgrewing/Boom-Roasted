@@ -5,7 +5,12 @@ import CurrentRoast from "../components/CurrentRoast";
 
 
 class Roast extends Component {
-
+  constructor(props) {
+    super(props);
+      this.state= {
+        user: this.props.auth.user.id,
+      }
+  }
 
 
   render() {
@@ -13,7 +18,8 @@ class Roast extends Component {
     return (
 
           <div className="container center-align">
-            <CurrentRoast />
+            <CurrentRoast 
+            user={this.state.user}/>
           </div>
 
     );

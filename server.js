@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
+const path = require("path");
 
 const users = require("./routes/api/users");
 const coffees = require("./routes/api/coffees");
@@ -24,6 +25,13 @@ const db = require("./config/keys").mongoURI;
 // Connect to MongoDB
 mongoose
   .connect(
+    process.env.MONGODB_URI || 'mongodb://localhost/boom-roasted',
+     {
+       useNewUrlParser: true,
+       useUnifiedTopology: true,
+       useCreateIndex: true,
+       useFindAndModify: false
+     },
     db,
     { useNewUrlParser: true }
   )
@@ -41,6 +49,16 @@ app.use("/api/users", users);
 app.use("/api/coffees", coffees)
 app.use("/api/messages", messages)
 app.use("/api/roasts", roasts)
+
+// Serve Static assets if in production environment
+if(process.env.NODE_ENV === "production"){
+  // set static folder
+  app.use(express.static("client/build"));
+
+  app.get("*", (req, res) => {
+    res.sendfile(path.resolve(__dirname, "client", "build", "index.html"))
+  })
+}
 
 const port = process.env.PORT || 5000;
 

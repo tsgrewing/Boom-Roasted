@@ -29,7 +29,7 @@ class CurrentRoast extends Component {
             chartLabels:[],
             chartPoints: [],
             finished: false,
-            user: this.props.auth.user.id,
+            user: this.props.user,
             inventory: [],
             started: false
         }
@@ -80,7 +80,6 @@ class CurrentRoast extends Component {
             this.setState({ finished: true,
                             drop: {time: eventTime, temp:this.state.temp} })
         }
-        let eventObject = { [eventName]: {time: eventTime, temp: currentTemp} }
 
         this.setState(
             { [eventName]: {time: eventTime, temp: currentTemp}
@@ -144,51 +143,49 @@ class CurrentRoast extends Component {
                           startImmediately={false}
                           formatValue={(value) => `${(value < 10 ? `0${value}` : value)}:`}
                 >
-                {({ start, stop, getTime, reset }) => (
-                <>
-                {/* Form to start timer and roast */}
-                {!this.state.started 
-                ?
-                <StartRoastForm 
-                    start={start}
-                    startRoast={this.startRoast}
-                    inventory={this.state.inventory}
-                />
-                :
-                <div className="row">
-                <RoastForm
-                cancelSubmit={this.cancelSubmit}
-                finished={this.state.finished}
-                currentTemp={this.state.currentTemp}
-                tempChange={this.tempChange}
-                turn={this.state.turn}
-                change={this.state.change}
-                first={this.state.first}
-                eventSubmit={this.eventSubmit}
-                stop={stop}
-                reset={reset}
-                getTime={getTime}
-                saveRoast={this.saveRoast}
-                />
+                    {({ start, stop, getTime, reset }) => (
+                    <>
+                    {/* Form to start timer and roast */}
+                    {!this.state.started 
+                    ?
+                    <StartRoastForm 
+                        start={start}
+                        startRoast={this.startRoast}
+                        inventory={this.state.inventory}
+                    />
+                    :
+                    <div className="row">
+                    <RoastForm
+                    cancelSubmit={this.cancelSubmit}
+                    finished={this.state.finished}
+                    currentTemp={this.state.currentTemp}
+                    tempChange={this.tempChange}
+                    turn={this.state.turn}
+                    change={this.state.change}
+                    first={this.state.first}
+                    eventSubmit={this.eventSubmit}
+                    stop={stop}
+                    reset={reset}
+                    getTime={getTime}
+                    saveRoast={this.saveRoast}
+                    />
 
-                {/* Form to add Notes to roast */}
-                <CurrentNotes
-                updateNotes={this.updateNotes}
-                notes={this.state.notes}
-                saveNotes={this.saveNotes} 
-                />
-                </div>
-                }
+                    {/* Form to add Notes to roast */}
+                    <CurrentNotes
+                    updateNotes={this.updateNotes}
+                    />
+                    </div>
+                    }
 
-                {/* Time Display */}
-                <div id="timerWrapper" className="row center-align">
-                    <h4>
-                        <Timer.Minutes />
-                        <Timer.Seconds formatValue={(value) => `${(value < 10 ? `0${value}` : value)}`} />
-                    </h4>
-                </div>
+                    {/* Time Display */}
+                    <div id="timerWrapper" className="row center-align">
+                        <h4>
+                            <Timer.Minutes />
+                            <Timer.Seconds formatValue={(value) => `${(value < 10 ? `0${value}` : value)}`} />
+                        </h4>
+                    </div>
 
-                {/* Roast Curve for current roast, dynamically updated from state */}
+                    {/* Roast Curve for current roast, dynamically updated from state */}
 
                     <RoastChart 
                     labels={this.state.chartLabels}
@@ -197,8 +194,8 @@ class CurrentRoast extends Component {
                     start= {start}
                     />
 
-                </>
-                )}
+                    </>
+                    )}
                 </Timer>
             </div>
         )
