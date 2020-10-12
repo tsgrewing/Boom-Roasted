@@ -25,8 +25,7 @@ const db = require("./config/keys").mongoURI;
 
 // Connect to MongoDB
 mongoose
-  .connect(
-    db,
+  .connect(process.env.MONGODB_URI || db,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -57,8 +56,8 @@ app.use("/api/roasts", roasts)
 //   console.log(NODE_ENV)
 // }
 
-// app.get('*', (request, response) => {
-// 	response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-// });
+app.get('*', (request, response) => {
+	response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
 
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));
