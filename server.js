@@ -10,6 +10,7 @@ const roasts = require("./routes/api/roasts");
 const messages = require("./routes/api/messages");
 
 const app = express();
+const port = process.env.PORT || 5000;
 
 // Bodyparser middleware
 app.use(
@@ -25,9 +26,13 @@ const db = require("./config/keys").mongoURI;
 // Connect to MongoDB
 mongoose
   .connect(
-    process.env.MONGODB_URI || db,
-
-    { useNewUrlParser: true }
+    db,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false
+    }
   )
   .then(() => console.log("MongoDB successfully connected"))
   .catch(err => console.log(err));
@@ -45,15 +50,15 @@ app.use("/api/messages", messages)
 app.use("/api/roasts", roasts)
 
 // Serve Static assets if in production environment
-if(process.env.NODE_ENV === "production"){
-  // set static folder
-  app.use(express.static("client/build"));
+// if (process.env.NODE_ENV === "production") {
+//   console.log(NODE_ENV)
+// }
+// else {
+//   console.log(NODE_ENV)
+// }
 
-  app.get("*", (req, res) => {
-    res.sendfile(path.resolve(__dirname, "client", "build", "index.html"))
-  })
-}
-
-const port = process.env.PORT || 5000;
+// app.get('*', (request, response) => {
+// 	response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+// });
 
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));

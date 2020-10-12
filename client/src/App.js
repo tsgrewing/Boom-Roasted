@@ -46,9 +46,11 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
+        <>
         <Router>
-          <main className="App">
+          <>
           <Navbar />
+          <main className="App">
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
@@ -59,10 +61,12 @@ class App extends Component {
               <PrivateRoute exact path="/social" component={Social} />
               <PrivateRoute exact path="/history" component={History} />
             </Switch>
-        <Footer />
-          </main>
-        </Router>
             
+          </main>
+          </>
+        </Router>
+        <Footer />
+        </>
       </Provider>
     );
   }
