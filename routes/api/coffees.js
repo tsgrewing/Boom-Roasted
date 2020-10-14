@@ -32,6 +32,7 @@ router.put('/:id', (req, res) => {
 
 // delete a coffee by id
 router.delete('/:id', (req, res) => {
+  console.log("Params: " + req.params.id)
   Coffee.findByIdAndRemove(req.params.id).then((coffee) => {
     coffee.coffees.id(req.params.id).remove()
     return coffee.save()

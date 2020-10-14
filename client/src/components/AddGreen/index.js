@@ -22,19 +22,7 @@ class AddGreen extends Component {
 
   componentDidMount() {
     const options = {
-      onOpenStart: () => {
-        console.log("Open Start");
-      },
-      onOpenEnd: () => {
-        console.log("Open End");
-      },
-      onCloseStart: () => {
-        console.log("Close Start");
-      },
-      onCloseEnd: () => {
-          this.props.tableUpdate();
-        console.log("Close End");
-      },
+
       inDuration: 250,
       outDuration: 250,
       opacity: 0.5,
@@ -59,78 +47,78 @@ class AddGreen extends Component {
     axios.post("/api/coffees/", { name, process, country, cost, weight, user })
         .then((res) => {
             console.log(res)
+            this.props.tableUpdate();
       });
     
   };
 
   render() {
     return (
-      <div className="row">
-        <div className="col right-align">
+    <div>
+        <div className="col s6 right-align">
             {/* add green link to open model with add green form */}
-            <button className="center-align btn waves-effect waves-light modal-close green modal-trigger" data-target="modal1" >
-            <p className="valign-wrapper center-align">Add Coffee<span className="material-icons green-text ">add_circle</span></p>
+            <button className="center-align btn waves-effect waves-light green modal-trigger" data-target="modal1" >
+            Add Coffee<i className="material-icons right">add_circle</i>
             </button>
-
-            {/* modal with add green form */}
-            <div
-                ref={Modal => {
-                    this.Modal = Modal;
-                }}
-                id="modal1"
-                className="modal"
-            >
-              <div className="modal-content">
+        </div>
+        {/* modal with add green form */}
+        <div
+            ref={Modal => {
+                this.Modal = Modal;
+            }}
+            id="modal1"
+            className="modal"
+        >
+          <div className="modal-content">
+            <div className="row">
+                <h3>Add New Coffee</h3>
+                <form className="col s12" onSubmit={this.addCoffee}>
                 <div className="row">
-                    <h3>Add New Coffee</h3>
-                    <form className="col s12" onSubmit={this.addCoffee}>
-                    <div className="row">
-                        <div className="input-field col s6">
-                            <i className="prefix fas fa-tag"></i>
-                            <input id="newName" type="text" className="validate" name="name" onChange={this.onChange} />
-                            <label htmlFor="newName">Coffee Name</label>
-                        </div>
-                        <div className="input-field col s6">
-                            <i className="prefix fas fa-shapes"></i>
-                            <input id="newProcess" type="text" className="validate" name="process" onChange={this.onChange} />
-                            <label htmlFor="newProcess">Process</label>
-                        </div>
+                    <div className="input-field col s6">
+                        <i className="prefix fas fa-tag"></i>
+                        <input id="newName" type="text" className="validate" name="name" onChange={this.onChange} />
+                        <label htmlFor="newName">Coffee Name</label>
                     </div>
-                    <div className="row">
-                        <div className="input-field col s4">
-                            <i className="prefix fas fa-globe"></i>
-                            <input id="newCountry" type="text" className="validate" name="country" onChange={this.onChange} />
-                            <label htmlFor="newCountry">Country</label>
-                        </div>
-                        <div className="input-field col s4">
-                        <i className="prefix fas fa-weight-hanging"></i>
-                            <input id="newWeight" type="text" className="validate" name="weight" onChange={this.onChange} />
-                            <label htmlFor="newWeight">Weight in pounds</label>
-                        </div>
-                        <div className="input-field col s4">
-                            <i className="prefix fas fa-dollar-sign"></i>
-                            <input id="newCost" type="text" className="validate" name="cost" onChange={this.onChange} />
-                            <label htmlFor="newCost">Cost per pound</label>
-                        </div>
-                    </div>
-                    </form>
-                    <div className="row">
-                    <div className="col s6 center-align">
-                        <button className="center-align btn waves-effect waves-light modal-close green" type="submit" onClick={this.addCoffee} name="action">Submit
-                        <i className="material-icons right">add_box</i>
-                        </button>
-                    </div>
-                    <div className="col s6 center-align">
-                        <button className="center-align btn waves-effect waves-light modal-close red" type="submit" onClick={e => e.preventDefault()} name="action">Cancel
-                        <i className="material-icons right">cancel_presentation</i>
-                        </button>
-                    </div>
+                    <div className="input-field col s6">
+                        <i className="prefix fas fa-shapes"></i>
+                        <input id="newProcess" type="text" className="validate" name="process" onChange={this.onChange} />
+                        <label htmlFor="newProcess">Process</label>
                     </div>
                 </div>
-              </div>
+                <div className="row">
+                    <div className="input-field col s4">
+                        <i className="prefix fas fa-globe"></i>
+                        <input id="newCountry" type="text" className="validate" name="country" onChange={this.onChange} />
+                        <label htmlFor="newCountry">Country</label>
+                    </div>
+                    <div className="input-field col s4">
+                    <i className="prefix fas fa-weight-hanging"></i>
+                        <input id="newWeight" type="text" className="validate" name="weight" onChange={this.onChange} />
+                        <label htmlFor="newWeight">Weight in pounds</label>
+                    </div>
+                    <div className="input-field col s4">
+                        <i className="prefix fas fa-dollar-sign"></i>
+                        <input id="newCost" type="text" className="validate" name="cost" onChange={this.onChange} />
+                        <label htmlFor="newCost">Cost per pound</label>
+                    </div>
+                </div>
+                </form>
+                <div className="row">
+                <div className="col s6 center-align">
+                    <button className="center-align btn waves-effect waves-light modal-close green" type="submit" onClick={this.addCoffee} name="action">Submit
+                    <i className="material-icons right">add_box</i>
+                    </button>
+                </div>
+                <div className="col s6 center-align">
+                    <button className="center-align btn waves-effect waves-light modal-close red" type="submit" onClick={e => e.preventDefault()} name="action">Cancel
+                    <i className="material-icons right">cancel_presentation</i>
+                    </button>
+                </div>
+                </div>
             </div>
+          </div>
         </div>
-      </div>
+    </div>
     );
   }
 }

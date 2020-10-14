@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import InvTable from "../components/Inventory";
-import AddGreen from "../components/AddGreen";
 
 class Inventory extends Component {
 
@@ -17,11 +16,7 @@ class Inventory extends Component {
             </h4>
           </div>
           <InvTable />
-          <div id="modal1" className="modal">
-            <div className="modal-content">
-            <AddGreen />
-            </div>
-          </div>
+
         </div>
       </div>
     );
