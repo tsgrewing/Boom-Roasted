@@ -15,7 +15,7 @@ class RoastForm extends Component {
                     <input
                       type="number"
                       className="col s-12"
-                      value={this.props.currentTemp}
+                      // value={this.props.currentTemp}
                       onChange={this.props.tempChange}
                       name="eventTemp"
                     ></input>

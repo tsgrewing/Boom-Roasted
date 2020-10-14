@@ -65,9 +65,10 @@ class AddGreen extends Component {
 
   render() {
     return (
-        <div>
+      <div className="row">
+        <div className="col right-align">
             {/* add green link to open model with add green form */}
-            <button className="waves-effect waves-light modal-trigger" data-target="modal1" >
+            <button className="center-align btn waves-effect waves-light modal-close green modal-trigger" data-target="modal1" >
             <p className="valign-wrapper center-align">Add Coffee<span className="material-icons green-text ">add_circle</span></p>
             </button>
 
@@ -113,15 +114,23 @@ class AddGreen extends Component {
                         </div>
                     </div>
                     </form>
-                    <div className="center-align">
-                        <button className="center-align btn waves-effect waves-light modal-close" type="submit" onClick={this.addCoffee} name="action">Submit
+                    <div className="row">
+                    <div className="col s6 center-align">
+                        <button className="center-align btn waves-effect waves-light modal-close green" type="submit" onClick={this.addCoffee} name="action">Submit
                         <i className="material-icons right">add_box</i>
                         </button>
+                    </div>
+                    <div className="col s6 center-align">
+                        <button className="center-align btn waves-effect waves-light modal-close red" type="submit" onClick={e => e.preventDefault()} name="action">Cancel
+                        <i className="material-icons right">cancel_presentation</i>
+                        </button>
+                    </div>
                     </div>
                 </div>
               </div>
             </div>
         </div>
+      </div>
     );
   }
 }

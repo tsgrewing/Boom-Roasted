@@ -8,14 +8,13 @@ const RoastSchema = new Schema({
     required: true
   },
   notes: {
-    type: String,
-    required: true
+    type: String
   },
   weight: {
     type: Number,
     required: true
   },
-  events: {
+  user: {
     type: String,
     required: true
   },
@@ -36,6 +35,14 @@ const RoastSchema = new Schema({
     }
   },
   change: {
+    time: {
+      type: String
+    },
+    temp: {
+      type: String
+    }
+  },
+  charge: {
     time: {
       type: String
     },

@@ -25,6 +25,7 @@ router.get('/id/:id', (req, res) => {
 
 // add a roast to history
 router.post('/', (req, res) => {
+  console.log(req.body)
   Roast.create(req.body)
   .then((roasts => res.json(roasts)))
   .catch(err => res.json(err))

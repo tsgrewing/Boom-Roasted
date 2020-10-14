@@ -22,7 +22,6 @@ class InvTable extends Component {
         const userInv = this.props.auth.user.id
         const green = await axios.get(`/api/coffees/${userInv}`);
         this.setState({inventory: green.data})
-        console.log(green.data)
     }
 
     tableUpdate = () => {
@@ -30,7 +29,6 @@ class InvTable extends Component {
     }
 
     render() {
-        console.log(this.state.inventory)
         return (
             <div className="InvTableWrapper">
                 <table className="centered highlight">
@@ -41,7 +39,7 @@ class InvTable extends Component {
                         <th>Country</th>
                         <th>Weight</th>
                         <th>Cost</th>
-                        <th>Total Cost on hand</th>
+                        <th>Inventory Cost</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -59,7 +57,7 @@ class InvTable extends Component {
                         </tr>
                     ))
                     :
-                    <tr><td>No Coffees in Inventory</td></tr>
+                    <div className="row"><div className="col center-align">No Coffees in Inventory</div></div>
                     }
                     </tbody>
                 </table>

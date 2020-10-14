@@ -19,7 +19,7 @@ class CurrentRoast extends Component {
             name: "",
             roastTime: "",
             currentTemp: '',
-            weight: 0,
+            batchWeight: 0,
             charge: '',
             turn: 0,
             change: 0,
@@ -48,12 +48,16 @@ class CurrentRoast extends Component {
         M.AutoInit();
     };
 
-    startRoast(coffeeName, chargeTemp) {
+    startRoast(coffeeName, chargeTemp, greenId, batchWeight, invWeight) {
+        console.log(greenId)
         this.setState({
             charge: {time: "0:00", temp: chargeTemp},
             name: coffeeName,
             started: true,
-            currentTemp: chargeTemp
+            currentTemp: chargeTemp,
+            greenId: greenId,
+            batchWeight: batchWeight,
+            invWeight: invWeight
         });
         this.updateChart("0:00", chargeTemp)
     }
@@ -83,10 +87,9 @@ class CurrentRoast extends Component {
 
         this.setState(
             { [eventName]: {time: eventTime, temp: currentTemp}
-            // chartLabels: {...this.state.chartLabels, ...{eventTime}},
-            // chartPoints: {...this.state.chartPoints, ...{'x': [eventTime], 'y': [this.state.currentTemp]} }
         });
         this.updateChart(eventTime, currentTemp);
+        console.log(this.state)
     };
 
     updateChart(time, temp) {
@@ -104,20 +107,33 @@ class CurrentRoast extends Component {
         e.preventDefault();
     };
 
-    saveRoast = async () => {
-        const {name, weight, charge, turn, change, first, drop, notes, user} = this.state;
-        await axios.post(`/api/roasts`, { name, weight, charge, turn, change, first, drop, notes, user })
-        .then(res => this.resetState());
+    // save roast and push to database and update weight in inventory
+    saveRoast() {
+        const {name, batchWeight, invWeight, charge, turn, change, first, drop, notes, user, greenId} = this.state;
+        console.log(user)
+        const newWeight = invWeight - batchWeight
+        axios.post(`/api/roasts`, { name:name, weight: batchWeight, charge:charge, turn: turn, change: change, first:first, drop:drop, notes:notes, user:user })
+        .then(res => {
+            console.log(res)
+            axios.put(`/api/coffees/${greenId}`, {weight:newWeight})
+            this.resetState()
+        });
     };
 
+    // get inventory to use in start roast form
     getInventory = async () => {
         const userInv = this.props.auth.user.id
         const green = await axios.get(`/api/coffees/${userInv}`);
-        this.setState({inventory: green.data})
+        this.setState({
+            inventory: green.data,
+            firstGreenInv: green.data[0].weight
+            })
     }
 
+    // reset state to default values for next roast
     resetState() {
         this.setState({
+            greenId: "", 
             name: "",
             roastTime: "",
             currentTemp: 0,
@@ -131,7 +147,8 @@ class CurrentRoast extends Component {
             chartLabels:[],
             chartPoints: [],
             finished: false,
-            started: false
+            started: false,
+            invWeight: 0
         });
     };
 
@@ -152,6 +169,7 @@ class CurrentRoast extends Component {
                         start={start}
                         startRoast={this.startRoast}
                         inventory={this.state.inventory}
+                        // initialInvWeight={this.state.initialInvWeight}
                     />
                     :
                     <div className="row">
