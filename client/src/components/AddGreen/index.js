@@ -23,18 +23,8 @@ class AddGreen extends Component {
   componentDidMount() {
     console.log(this.props)
     const options = {
-      onOpenStart: () => {
-        console.log("Open Start");
-      },
-      onOpenEnd: () => {
-        console.log("Open End");
-      },
-      onCloseStart: () => {
-        console.log("Close Start");
-      },
       onCloseEnd: () => {
           this.props.updateInv();
-        console.log("Close End");
       },
       inDuration: 250,
       outDuration: 250,

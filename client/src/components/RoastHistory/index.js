@@ -24,29 +24,38 @@ class RoastHistory extends Component {
         const historyList = this.state.history;
 
         return (
-            <div className="HistTableWrapper col s-4 left-align">
+            <div className="HistTableWrapper col s4">
                 <table className="centered highlight bordered">
                     <thead>
                     <tr>
                         {/* <th>Date</th> */}
                         <th>Coffee</th>
-                        <th>Temp</th>
-                        <th>Time</th>
-                        <th>Details</th>
+                        <th>Date</th>
+                        {/* <th>Temp</th>
+                        <th>Time</th> */}
+                        {/* <th>Details</th> */}
                     </tr>
                     </thead>
                     <tbody>
                         {/* separate this into a new component? */}
                     {historyList
-                    ? historyList.map(batch => (
-                        <tr key={batch._id + "row"}>
+                    ? historyList.map(batch => {
+                        const d = new Date(batch.date);
+                        const year = d.getFullYear().toString().substr(-2);
+                        const month = (1+d.getMonth()).toString().padStart(2, '0');
+                        const day = d.getDate().toString().padStart(2, '0');
+                        const roastTime = (d.getHours() +":" +d.getMinutes())
+                        const roastDate = month+'/'+day+'/'+year + " " + roastTime
+                        return (
+                        <tr key={batch._id + "row"} onClick={() => this.props.loadDetails(batch._id)}>
                             {/* <td>{batch.date}</td> */}
                             <td key={batch.name}>{batch.name}</td>
-                            <td key={batch.drop.temp}>{batch.drop.temp}&deg;F</td>
-                            <td key={batch.drop.time}>{batch.drop.time}</td>
-                            <td key={batch._id}><button className="detailBtn" onClick={() => this.props.loadDetails(batch._id)}>Details</button></td>
+                            <td key={batch._id + "date"}>{roastDate}</td>
+                            {/* <td key={batch.drop.temp}>{batch.drop.temp}&deg;F</td>
+                            <td key={batch.drop.time}>{batch.drop.time}</td> */}
+                            {/* <td key={batch._id}><button className="detailBtn" onClick={() => this.props.loadDetails(batch._id)}>Details</button></td> */}
                         </tr>
-                    ))
+                    )})
                     : <tr><td>Roast Some Coffee!</td></tr>
                     }
                     </tbody>

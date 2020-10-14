@@ -1,21 +1,18 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import Messages from "../components/Messages";
 
 class Social extends Component {
 
   render() {
 
     return (
-      <div className="container valign-wrapper main-wrapper">
-        <div className="row">
-          <div className="landing-copy col s12 center-align">
-            <h4>
-              <b>Messages</b>
-            </h4>
+        <div className="row center-align">
+          <div className="landing-copy col s10 offset-s1 center-align">
+            <Messages />
           </div>
         </div>
-      </div>
     );
   }
 }

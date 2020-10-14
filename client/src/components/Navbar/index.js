@@ -7,8 +7,15 @@ import "./style.css";
 
 
 class Navbar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: this.props.auth.user
+    }
+  };
 
   render() {
+    console.log(this.state.user)
     const isLoggedIn = this.props.auth.isAuthenticated;
     return (
       <header>

@@ -29,7 +29,7 @@ router.put('/:id', (req, res) => {
   console.log(req.body)
   Coffee.findByIdAndUpdate({ _id: req.params.id }, req.body)
   .then(roast => res.json(roast))
-  .catch(err => console.log(req.params.id))
+  .catch(err => res.json(err))
 })
 
 // delete a coffee by id

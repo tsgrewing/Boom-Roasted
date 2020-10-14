@@ -3,8 +3,15 @@ const router = express.Router();
 const Message = require("../../models/Message");
 
 // get all messages
-router.get('/', (req, res) => {
-  Message.find()
+// router.get('/', (req, res) => {
+//   Message.find()
+//   .then(messages => res.json(messages))
+//   .catch(err => res.json(err))
+// })
+
+// get all messages from category
+router.get('/:category', (req, res) => {
+  Message.find({category: req.params.category})
   .then(messages => res.json(messages))
   .catch(err => res.json(err))
 })
@@ -18,8 +25,9 @@ router.post('/', (req, res) => {
 
 // update a message
 router.put('/:id', (req, res) => {
-  Message.findOneAndUpdate({ _id: req.body.id }, req.body)
-  .then()
+  Message.findByIdAndUpdate({ _id: req.params.id }, req.body)
+  .then(roast => res.json(roast))
+  .catch(err => res.json(err))
 })
 
 // delete a message by id

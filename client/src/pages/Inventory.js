@@ -8,7 +8,7 @@ class Inventory extends Component {
   render() {
 
     return (
-      <div className="container valign-wrapper main-wrapper">
+
         <div className="row">
           <div className="landing-copy col s12 center-align">
             <h4>
@@ -18,7 +18,7 @@ class Inventory extends Component {
           <InvTable />
 
         </div>
-      </div>
+
     );
   }
 }

@@ -16,7 +16,7 @@ class PastDetails extends Component {
     }
     
     componentWillReceiveProps(nextProps) {
-        if(this.props.notes !== nextProps.notes) {
+        if(this.props !== nextProps) {
           this.setState({
             notes: nextProps.notes
           });
@@ -33,7 +33,6 @@ class PastDetails extends Component {
     render() {
         const roastData = [this.props.roastData];
         const selectedRoast = roastData[0];
-
         if (roastData[0].length !== 0){
             // data to render the line chart
             const chartData = {
@@ -70,14 +69,14 @@ class PastDetails extends Component {
             };
             
             return (
-                <div className="HistTableWrapper col s-8">
+                <div className="HistTableWrapper col s8">
                     {/* chart to display the roast curve of the selected batch */}
                     <div className="row past-chart-wrapper">
                         <Line
                         data={chartData} />
                     </div>
                     <div className="row past-table-wrapper">
-                        <table className="col s-4 centered bordered past-table">
+                        <table className="col s12 centered bordered past-table">
                             <thead>
                                 <tr>
                                     <th>Coffee Name</th>

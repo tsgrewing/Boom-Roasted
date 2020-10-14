@@ -11,6 +11,10 @@ const MessageSchema = new Schema({
     type: String,
     required: true
   },
+  category: {
+    type: String,
+    required: true
+  },
   message: {
     type: String,
     required: true
