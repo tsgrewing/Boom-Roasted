@@ -21,6 +21,7 @@ class AddGreen extends Component {
   };
 
   componentDidMount() {
+    console.log(this.props)
     const options = {
       onOpenStart: () => {
         console.log("Open Start");
@@ -32,7 +33,7 @@ class AddGreen extends Component {
         console.log("Close Start");
       },
       onCloseEnd: () => {
-          this.props.tableUpdate();
+          this.props.updateInv();
         console.log("Close End");
       },
       inDuration: 250,
@@ -60,8 +61,9 @@ class AddGreen extends Component {
         .then((res) => {
             console.log(res)
       });
-    
   };
+
+
 
   render() {
     return (

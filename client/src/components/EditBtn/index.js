@@ -22,6 +22,9 @@ class EditBtn extends Component {
     const {name, process, country, weight, cost} = this.props.coffee;
     this.setState({name, process, country, weight, cost})
     const options = {
+      onCloseEnd: () => {
+        this.props.updateInv();
+      },
       inDuration: 250,
       outDuration: 250,
       opacity: 0.5,
@@ -41,7 +44,7 @@ class EditBtn extends Component {
   updateCoffee (e) {
     const {name, weight, process, country, cost} = this.state
     e.preventDefault();
-    axios.put(`/api/coffees/${e.target.value}`, {name, process, country, cost, weight})
+    axios.put(`/api/coffees/${this.props.coffee._id}`, {name, process, country, cost, weight})
     .then(res => console.log(res.data))
     .catch(err => console.log(err))
   };

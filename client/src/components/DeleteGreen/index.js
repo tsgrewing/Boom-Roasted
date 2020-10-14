@@ -20,6 +20,9 @@ class DeleteGreen extends Component {
 
   componentDidMount() {
     const options = {
+      onCloseEnd: () => {
+        this.props.updateInv();
+      },
       inDuration: 250,
       outDuration: 250,
       opacity: 0.5,
@@ -37,7 +40,6 @@ class DeleteGreen extends Component {
   }
 
   deleteCoffee (e) {
-console.log(e.target.value)
     e.preventDefault();
     axios.delete(`/api/coffees/${e.target.value}`)
         .then((res) => {

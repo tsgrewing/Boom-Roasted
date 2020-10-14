@@ -29,9 +29,6 @@ class InvTable extends Component {
         this.setState({inventory: green.data})
     }
 
-    tableUpdate () {
-        this.getInventory();
-    };
 
     updateList(e) {
         if (!this.state.listStatus) {
@@ -40,7 +37,6 @@ class InvTable extends Component {
         else {
             this.setState({listStatus: false}, console.log(this.state.listStatus))
         }
-
     }
 
     render() {
@@ -59,7 +55,7 @@ class InvTable extends Component {
                     
 
                     <AddGreen 
-                    tableUpdate={this.tableUpdate}/>
+                    updateInv={this.getInventory}/>
                 </div>
                 <table className="centered highlight">
                     <thead>
@@ -90,11 +86,13 @@ class InvTable extends Component {
                             {/* Add buttons to delete coffee or adjust weight */}
                             <td key={"edit: " + coffee._id}>
                                 <EditBtn 
+                                updateInv={this.getInventory}
                                 coffee={coffee}
                                 />
                             </td>
                             <td key={"delete: " + coffee._id} id={"delete " + coffee.name}>
                                 <DeleteGreen
+                                updateInv={this.getInventory}
                                 coffee={coffee}
                                 />
                             </td>
