@@ -32,12 +32,14 @@ router.put('/:id', (req, res) => {
 
 // delete a coffee by id
 router.delete('/:id', (req, res) => {
-  Coffee.findByIdAndRemove(req.params.id).then((coffee) => {
-    coffee.coffees.id(req.params.id).remove()
-    return coffee.save()
-  }).then((inv) => {
-    res.json(inv)
-  })
+  Coffee.findByIdAndRemove(req.params.id, function (err, docs) { 
+    if (err){ 
+        console.log(err) 
+    } 
+    else{ 
+        console.log("Removed coffee : ", docs); 
+    } 
+});
 });
 
 module.exports = router;

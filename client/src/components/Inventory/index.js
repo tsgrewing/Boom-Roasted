@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import axios from "axios";
 import PropTypes from "prop-types"
 import AddGreen from "../AddGreen";
-import DeleteGreen from "../DeleteGreen"
+import DeleteGreen from "../DeleteGreen";
+import EditBtn from "../EditBtn";
 
 
 class InvTable extends Component {
@@ -14,6 +15,8 @@ class InvTable extends Component {
             inventory: [],
             listStatus: false
         }
+        this.getInventory = this.getInventory.bind(this);
+
     };
 
     componentDidMount() {
@@ -86,17 +89,15 @@ class InvTable extends Component {
                             <td key={coffee._id + " totalCost"}>${coffee.cost * coffee.weight}</td>
                             {/* Add buttons to delete coffee or adjust weight */}
                             <td key={"edit: " + coffee._id}>
-                            {/* <EditBtn 
-                            coffee={coffee}
-                            /> */}
-                                <button className="btn-floating btn-small waves-effect waves-light green">
-                                <i className="far fa-edit"></i></button></td>
+                                <EditBtn 
+                                coffee={coffee}
+                                />
+                            </td>
                             <td key={"delete: " + coffee._id} id={"delete " + coffee.name}>
                                 <DeleteGreen
-                                coffee={coffee._id}
+                                coffee={coffee}
                                 />
-                                
-                                </td>
+                            </td>
                         </tr>
                             )}
                         else{ return (null); }

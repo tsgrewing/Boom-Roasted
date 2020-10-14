@@ -68,7 +68,7 @@ console.log(e.target.value)
             <div className="row">
             <div className="col s6 center-align">
                 <button className="center-align btn waves-effect waves-light modal-close green" type="submit" onClick={this.deleteCoffee} name="action" value={this.props.coffee._id}>Yes, Delete
-                <i className="far fa-trash-alt"></i>
+                <i className="far fa-trash-alt" onClick={this.deleteCoffee}></i>
                 </button>
             </div>
             <div className="col s6 center-align">

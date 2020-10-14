@@ -10,11 +10,14 @@ const roasts = require("./routes/api/roasts");
 const messages = require("./routes/api/messages");
 
 const app = express();
+
 const port = process.env.PORT || 5000;
 
 // Bodyparser middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));

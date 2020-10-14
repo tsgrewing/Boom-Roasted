@@ -16,7 +16,7 @@ class AddGreen extends Component {
         country: "", 
         weight: "",
         cost: "",
-
+        refresh: 0
       }
   };
 
