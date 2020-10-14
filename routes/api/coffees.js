@@ -26,13 +26,12 @@ router.post('/', (req, res) => {
 // update a coffee's weight in inventory
 router.put('/:id', (req, res) => {
   Coffee.findByIdAndUpdate({ _id: req.params.id }, req.body)
-  .then(roast => res.json(roast))
+  .then(coffee => res.json(coffee))
   .catch(err => res.status(422).json(err))
 })
 
 // delete a coffee by id
 router.delete('/:id', (req, res) => {
-  console.log("Params: " + req.params.id)
   Coffee.findByIdAndRemove(req.params.id).then((coffee) => {
     coffee.coffees.id(req.params.id).remove()
     return coffee.save()

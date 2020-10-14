@@ -49,14 +49,14 @@ console.log(e.target.value)
   render() {
     return (
     <>
-        <button className="btn-floating btn-small waves-effect waves-light red modal-trigger" data-target={"modal"+this.props.coffee}><i className="far fa-trash-alt"></i></button>
+        <button className="btn-floating btn-small waves-effect waves-light red modal-trigger" data-target={"modal"+this.props.coffee._id}><i className="far fa-trash-alt"></i></button>
 
         {/* modal to confirm */}
         <div
             ref={Modal => {
                 this.Modal = Modal;
             }}
-            id={"modal"+this.props.coffee}
+            id={"modal"+this.props.coffee._id}
             className="modal"
         >
           <div className="modal-content">
@@ -67,7 +67,7 @@ console.log(e.target.value)
             </div>
             <div className="row">
             <div className="col s6 center-align">
-                <button className="center-align btn waves-effect waves-light modal-close green" type="submit" onClick={this.deleteCoffee} name="action" value={this.props.coffee}>Yes, Delete
+                <button className="center-align btn waves-effect waves-light modal-close green" type="submit" onClick={this.deleteCoffee} name="action" value={this.props.coffee._id}>Yes, Delete
                 <i className="far fa-trash-alt"></i>
                 </button>
             </div>
