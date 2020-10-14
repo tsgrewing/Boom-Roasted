@@ -30,8 +30,8 @@ class RoastHistory extends Component {
                     <tr>
                         {/* <th>Date</th> */}
                         <th>Coffee</th>
-                        <th>Time</th>
                         <th>Temp</th>
+                        <th>Time</th>
                         <th>Details</th>
                     </tr>
                     </thead>
