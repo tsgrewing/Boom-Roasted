@@ -15,7 +15,7 @@ class Navbar extends Component {
   };
 
   render() {
-    console.log(this.state.user)
+
     const isLoggedIn = this.props.auth.isAuthenticated;
     return (
       <header>

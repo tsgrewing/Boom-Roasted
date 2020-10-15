@@ -21,7 +21,6 @@ class AddGreen extends Component {
   };
 
   componentDidMount() {
-    console.log(this.props)
     const options = {
       onCloseEnd: () => {
           this.props.updateInv();
@@ -46,10 +45,8 @@ class AddGreen extends Component {
     e.preventDefault();
     const user = this.props.auth.user.id;
     const {name, process, country, cost, weight} = this.state;
-    console.log({ name, process, country, cost, weight, user })
     axios.post("/api/coffees/", { name, process, country, cost, weight, user })
         .then((res) => {
-            console.log(res)
       });
   };
 

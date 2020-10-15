@@ -3,16 +3,16 @@ const router = express.Router();
 const Message = require("../../models/Message");
 
 // get all messages
-// router.get('/', (req, res) => {
-//   Message.find()
-//   .then(messages => res.json(messages))
-//   .catch(err => res.json(err))
-// })
+router.get('/', (req, res) => {
+  Message.find()
+  .then(messages => res.json(messages))
+  .catch(err => res.json(err))
+})
 
-// get all messages from category
+// get all messages
 router.get('/:category', (req, res) => {
   Message.find({category: req.params.category})
-  .then(messages => res.json(messages))
+  .then(msgs => res.json(msgs))
   .catch(err => res.json(err))
 })
 

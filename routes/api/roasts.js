@@ -12,6 +12,7 @@ router.get('/', (req, res) => {
 // get all roasts from user
 router.get('/user/:user', (req, res) => {
     Roast.find({user: req.params.user})
+    .sort({date: -1})
     .then(batch => res.json(batch))
     .catch(err => res.json(err))
 });
