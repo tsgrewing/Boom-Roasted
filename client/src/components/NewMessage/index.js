@@ -62,7 +62,7 @@ class NewMessage extends Component {
     ]
     return (
     <div>
-        <div className="col s6 right-align">
+        <div className="row">
             {/* add green link to open model with add green form */}
             <button className="center-align btn waves-effect waves-light green modal-trigger" data-target="postModal" >
             New Post<i className="material-icons right">add_circle</i>

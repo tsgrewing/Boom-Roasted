@@ -5,6 +5,7 @@ import MsgCategory from "../MsgCategory";
 import CurrentMessage from "../CurrentMessage";
 import NewMessage from "../NewMessage";
 import axios from 'axios';
+import "./style.css"
 
 class Messages extends Component {
     constructor(props) {
@@ -64,7 +65,7 @@ class Messages extends Component {
     render() {
         const { user } = this.props.auth;
         return (
-          <div style={{ height: "75vh" }} className="container ">
+          <div  className="container messageBoard">
             <div className="row">
               <div className="landing-copy col s12 center-align">
                 <h4>Discussions</h4>
@@ -73,6 +74,7 @@ class Messages extends Component {
                 user={user}
                 updateMessages={this.getRecentMsgs}/>
               </div>
+              {/* category selection bar */}
               <div className="row center-align collection">
                 <button
                   className="btn-flat col s3 floating collection-item"

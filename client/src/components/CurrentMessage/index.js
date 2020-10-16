@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import axios from "axios";
 import "./style.css"
 
-
 class MsgCategory extends Component {
     constructor(props) {
         super(props);
@@ -42,27 +41,31 @@ class MsgCategory extends Component {
 
         return(
             <>
-            <div className="messageWrapper col s12 green"  key={currentMsg._id +"container"}>
+            <div className="row postRow">
+            <div className="messageWrapper col s12"  key={currentMsg._id +"container"}>
                 <h5 className="left-align msgTitle" key={currentMsg._id + "title"}>{currentMsg.title}</h5>
                 <h6 className="left-align msgAuthor" key={currentMsg._id + "author"}>By: {currentMsg.authorUsername}</h6>
                 <p className="left-align msgBody" key={currentMsg._id + "msg"}>{currentMsg.message}</p>
                 <p className="left-align msgBody col s6" key={currentMsg._id + "date"}>{this.props.getDate(currentMsg.date)}</p>
             </div>
+            </div>
             {/* Check for and map over replies */}
 
             {currentMsg.replies.length > 0 &&
                 currentMsg.replies.map(reply => 
-                    <div className="replyWrapper col s11 offset-s1 green" key={reply.date +"container"}>
+                    <div className="replyRow row">
+                    <div className="replyWrapper col s11 offset-s1" key={reply.date +"container"}>
                         <h5 className="left-align msgTitle" key={reply.date +"title"}>{reply.replyTitle}</h5>
                         <h6 className="left-align msgAuthor" key={reply.date +"author"}>From: {reply.replyAuthor}</h6>
                         <p className="left-align msgBody" key={reply.date +"msg"}>{reply.replyMessage}</p>
                         <p className="left-align msgBody col s6" key={reply.date +"date"}>{this.props.getDate(reply.date)}</p>
                     </div>
+                    </div>
                 )    
             }
 
             {/* Reply form */}
-            <div className="row replyWrapper">
+            <div className="row replyFormWrapper">
                 <div className="col s12">
                 <h6 className="left-align">Reply:</h6>
                 <form data-parent={currentMsg._id} onSubmit={e => this.sendReply(e)}>

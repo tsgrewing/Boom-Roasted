@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import "./style.css"
 
 
 class MsgCategory extends Component {
@@ -15,7 +16,7 @@ class MsgCategory extends Component {
 
     render() {
         return(
-            <table className="striped">
+            <table className="striped messageTable">
                 <thead>
                     <tr>
                         <th>Title</th>

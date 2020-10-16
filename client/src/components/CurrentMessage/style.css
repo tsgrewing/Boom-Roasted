@@ -1,0 +1,7 @@
+.messageWrapper {
+    padding-top: 2%;
+}
+
+.replyWrapper, .messageWrapper, .replyFormWrapper {
+    border: 1px solid #0000009c
+}
