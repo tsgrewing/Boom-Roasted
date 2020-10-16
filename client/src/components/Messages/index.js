@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import MsgCategory from "../MsgCategory";
 import CurrentMessage from "../CurrentMessage";
+import NewMessage from "../NewMessage";
 import axios from 'axios';
 
 class Messages extends Component {
@@ -66,6 +67,10 @@ class Messages extends Component {
             <div className="row">
               <div className="landing-copy col s12 center-align">
                 <h4>Discussions</h4>
+                <NewMessage 
+                username={this.state.username}
+                user={user}
+                updateMessages={this.getRecentMsgs}/>
               </div>
               <div className="row center-align collection">
                 <button
