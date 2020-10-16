@@ -17,6 +17,9 @@ class Messages extends Component {
         this.messageSelect = this.messageSelect.bind(this);
     }
 
+    componentWillMount() {
+        this.getRecentMsgs()
+    }
     messageSelect(e) {
         console.log(e)
         this.setState({currentMsg: e})
@@ -34,6 +37,12 @@ class Messages extends Component {
         const msgs = await axios.get(`/api/messages/${cat}`);
         this.setState({messages: msgs.data})
         console.log(this.state.messages)
+    };
+    
+    getRecentMsgs= async()=> {
+        const msgs = await axios.get(`/api/messages/`);
+        this.setState({recentMessages: msgs.data})
+        console.log(this.state.recentMessages)
     }
 
     getDate(posted) {
@@ -85,7 +94,7 @@ class Messages extends Component {
                 </button>
               </div>
 
-              {this.state.messages ? (
+              {(this.state.messages && !this.state.currentMsg) ? (
                 <MsgCategory
                   category={this.state.category}
                   messages={this.state.messages}
@@ -94,7 +103,19 @@ class Messages extends Component {
                   messageSelect={this.messageSelect}
                   getDate={this.getDate}
                 />
-              ) : null}
+              ) : 
+                (this.state.recentMessages && !this.state.currentMsg)
+                ?
+                <MsgCategory 
+                messages={this.state.recentMessages}
+                category={this.state.category}
+                user={user.id}
+                currentMsg={this.state.currentMsg}
+                messageSelect={this.messageSelect}
+                getDate={this.getDate}
+                />
+                : null
+              }
 
               {/* if a current message has been selected display it here */}
               {this.state.currentMsg && 

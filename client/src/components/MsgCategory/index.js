@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import CurrentMessage from '../CurrentMessage';
+
 
 class MsgCategory extends Component {
     constructor(props) {
@@ -14,18 +14,16 @@ class MsgCategory extends Component {
     }
 
     render() {
-        console.log(this.state.currentMsg)
+        console.log(this.props.messages)
         return(
-            <>
-            {!this.state.currentMsg &&
             <table className="striped">
                 <thead>
                     <tr>
                         <th>Title</th>
                         <th>Preview</th>
-                        {/* add author */}
+                        <th>Author</th>
                         <th>Posted</th>
-                        {/* add reply count */}
+                        <th>Replies</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -36,23 +34,22 @@ class MsgCategory extends Component {
                         <tr key={msg._id +"Row"} onClick={ e => { this.props.messageSelect(msg) }}>
                             <td key={msg._id + "title"}>{msg.title}</td>
                             <td key={msg._id + "preview"}>{preview}</td>
-                            {/* add author */}
+                            <td key={msg._id + "author"}>{msg.authorUsername}</td>
                             <td key={msg._id + "date"}>{postDate}</td>
-                            {/* add reply count */}
+                            <td key={msg._id + "replies"}>
+                            {(msg.replies 
+                            ?
+                            msg.replies.length
+                            :
+                            0
+                            )}
+                            </td>
                         </tr>  
                         )}                  
                     )}
                 </tbody>
             </table>
-            }
-
-            {/* if a current message has been selected display it here */}
-            {this.state.currentMsg &&
-                <CurrentMessage 
-                    message={this.state.currentMsg}
-                />
-            }
-            </>
+            
         )
     }
         

@@ -7,6 +7,10 @@ const MessageSchema = new Schema({
     type: String,
     required: true
   },
+  authorUsername: {
+    type: String,
+    required: true
+  },
   title: {
     type: String,
     required: true
