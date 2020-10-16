@@ -47,7 +47,7 @@ class Messages extends Component {
     };
     
     getRecentMsgs= async()=> {
-        const msgs = await axios.get(`/api/messages/`);
+        const msgs = await axios.get(`/api/messages/`, {params:{_limit: 10} });
         this.setState({recentMessages: msgs.data})
         console.log(this.state.recentMessages)
     }
@@ -57,7 +57,7 @@ class Messages extends Component {
         const year = d.getFullYear().toString().substr(-2);
         const month = (1+d.getMonth()).toString().padStart(2, '0');
         const day = d.getDate().toString().padStart(2, '0');
-        const postTime = (d.getHours() +":" +d.getMinutes())
+        const postTime = (d.getHours() +":" +("0"+ (d.getMinutes())).slice(-2));
         const postDate = (month+'/'+day+'/'+year + " " + postTime);
         return postDate;
     }

@@ -30,6 +30,7 @@ class MsgCategory extends Component {
 
     render() {
         const currentMsg = this.state.currentMsg
+        console.log.toString(currentMsg.replies)
         console.log(this.props.message)
         return(
             <>
@@ -41,7 +42,7 @@ class MsgCategory extends Component {
             </div>
             {/* Check for and map over replies */}
 
-            {currentMsg.replies.length &&
+            {currentMsg.replies.length > 0 &&
                 currentMsg.replies.map(reply => 
                     <div className="replyWrapper col s11 offset-s1 green" key={reply._id ="container"}>
                         <h5 className="left-align msgTitle" key={reply._id ="title"}>{reply.replyTitle}</h5>

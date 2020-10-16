@@ -59,8 +59,8 @@ app.use("/api/roasts", roasts)
 //   console.log(NODE_ENV)
 // }
 
-// app.get('*', (request, response) => {
-// 	response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-// });
+app.get('*', (request, response) => {
+	response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
 
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));
