@@ -25,8 +25,6 @@ router.post('/', (req, res) => {
 
 // update a coffee's weight in inventory
 router.put('/:id', (req, res) => {
-  console.log(req.params.id)
-  console.log(req.body)
   Coffee.findByIdAndUpdate({ _id: req.params.id }, req.body)
   .then(roast => res.json(roast))
   .catch(err => res.json(err))

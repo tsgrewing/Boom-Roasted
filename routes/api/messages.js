@@ -4,8 +4,7 @@ const Message = require("../../models/Message");
 
 // get all messages
 router.get('/', (req, res) => {
-  console.log(req.params)
-  Message.find().limit()
+  Message.find().limit(10)
   .sort({date: -1})
   .then(messages => res.json(messages))
   .catch(err => res.json(err))

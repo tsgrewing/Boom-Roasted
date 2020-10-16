@@ -14,7 +14,6 @@ class MsgCategory extends Component {
     }
 
     render() {
-        console.log(this.props.messages)
         return(
             <table className="striped">
                 <thead>

@@ -28,7 +28,6 @@ class Messages extends Component {
     }
 
     messageSelect(e) {
-        console.log(e)
         this.setState({currentMsg: e})
     }
 
@@ -43,13 +42,11 @@ class Messages extends Component {
     getMsgs= async(cat)=> {
         const msgs = await axios.get(`/api/messages/${cat}`);
         this.setState({messages: msgs.data})
-        console.log(this.state.messages)
     };
     
     getRecentMsgs= async()=> {
         const msgs = await axios.get(`/api/messages/`, {params:{_limit: 10} });
         this.setState({recentMessages: msgs.data})
-        console.log(this.state.recentMessages)
     }
 
     getDate(posted) {
