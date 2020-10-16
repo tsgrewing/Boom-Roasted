@@ -26,10 +26,12 @@ class MsgCategory extends Component {
             date: replyDate.toISOString()
         }
         console.log(reply)
-        axios.put(`api/messages/${msgId}`, {$push: {replies: reply}}, {safe:true, upsert: true, new: true})
+        axios.put(`api/messages/${msgId}`, {$push: {replies: reply}})
         .then(res => {
-            this.setState({replies: res.data.replies})
-            console.log(res.data)
+            this.setState({
+                currentMsg: res.data
+            })
+            console.log(this.state.currentMsg)
         })
     }
 
@@ -46,7 +48,7 @@ class MsgCategory extends Component {
             </div>
             {/* Check for and map over replies */}
 
-            {this.state.replies.length > 0 &&
+            {currentMsg.replies.length > 0 &&
                 currentMsg.replies.map(reply => 
                     <div className="replyWrapper col s11 offset-s1 green" key={reply.date +"container"}>
                         <h5 className="left-align msgTitle" key={reply.date +"title"}>{reply.replyTitle}</h5>

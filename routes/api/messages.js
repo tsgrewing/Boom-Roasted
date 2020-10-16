@@ -27,7 +27,10 @@ router.post('/', (req, res) => {
 
 // update a message
 router.put('/:id', (req, res) => {
-  Message.findByIdAndUpdate({ _id: req.params.id }, req.body)
+  Message.findByIdAndUpdate({ _id: req.params.id }, req.body,
+    {
+      new:true
+    })
   .then(roast => res.json(roast))
   .catch(err => res.json(err))
 })
