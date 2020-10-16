@@ -25,14 +25,23 @@ router.post("/register", (req, res) => {
     return res.status(400).json(errors);
   }
 
-  User.findOne({ email: req.body.email }).then(user => {
-    if (user) {
+  User.findOne({ $or:[
+    {email: req.body.email},
+    {username: req.body.username}
+  ]}).then(user => {
+    console.log(user)
+    if (user && user.email === req.body.email) {
       return res.status(400).json({ email: "Email already exists" });
-    } else {
+    }
+    else if (user && user.username === req.body.username){
+      return res.status(400).json({ username: "Username already in use" })
+    }
+    else {
       const newUser = new User({
         name: req.body.name,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        username: req.body.username
       });
 
       // Hash password before saving in database
