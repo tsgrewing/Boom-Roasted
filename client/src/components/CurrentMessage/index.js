@@ -10,7 +10,7 @@ class MsgCategory extends Component {
             this.state = {
                 user: this.props.user,
                 currentMsg: this.props.message,
-                replies: this.props.message.replies
+                replyText: ''
             }
         this.sendReply = this.sendReply.bind(this);
     }
@@ -29,7 +29,8 @@ class MsgCategory extends Component {
         axios.put(`api/messages/${msgId}`, {$push: {replies: reply}})
         .then(res => {
             this.setState({
-                currentMsg: res.data
+                currentMsg: res.data,
+                replyText: ''
             })
             console.log(this.state.currentMsg)
         })
@@ -64,7 +65,7 @@ class MsgCategory extends Component {
                 <div className="col s12">
                 <h6 className="left-align">Reply:</h6>
                 <form data-parent={currentMsg._id} onSubmit={e => this.sendReply(e)}>
-                <textarea name="replyText" placeholder="Enter reply" style={{resize: 'none'}} rows={15}></textarea>
+                <textarea name="replyText" value={this.state.replyText} style={{resize: 'none'}} rows={15} onChange={e => this.setState({replyText: e.target.value})}></textarea>
                 <p className="right-align"><button className="replyBtn">Reply</button></p>
                 </form>
                 </div>
