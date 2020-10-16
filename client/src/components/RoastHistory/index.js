@@ -17,7 +17,8 @@ class RoastHistory extends Component {
         const userHistory = this.props.auth.user.id
         const roast = await axios.get(`/api/roasts/user/${userHistory}`);
         this.setState({history: roast.data})
-        // console.log(this.state.history)
+        // .then(this.props.loadDetails(roast.data))
+        this.props.loadDetails(this.state.history[0]._id)
     };
 
     render() {

@@ -12,6 +12,7 @@ router.get('/', (req, res) => {
 // get all coffees from user
 router.get('/:user', (req, res) => {
   Coffee.find({user: req.params.user})
+  .sort({weight: -1})
   .then(coffees => res.json(coffees))
   .catch(err => res.json(err))
 })

@@ -46,8 +46,9 @@ class Messages extends Component {
     };
     
     getRecentMsgs= async()=> {
-        const msgs = await axios.get(`/api/messages/`, {params:{_limit: 10} });
-        this.setState({recentMessages: msgs.data})
+        const msgs = await axios.get(`/api/messages/`);
+        console.log(msgs.data)
+        this.setState({recentMessages: (msgs.data.slice(0, 10))})
     }
 
     getDate(posted) {

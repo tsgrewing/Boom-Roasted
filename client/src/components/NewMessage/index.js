@@ -41,7 +41,6 @@ class NewMessage extends Component {
     e.preventDefault();
     const user = this.props.auth.user.id;
     const {title, category, message} = this.state;
-    console.log(title + '/' + '/'+category+ '/' +'/' + message +'/'+user+'/'+this.props.username)
     axios.post("/api/messages/", { 
       author: user,
       title: title,

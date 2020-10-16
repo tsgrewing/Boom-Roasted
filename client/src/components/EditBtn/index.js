@@ -18,7 +18,6 @@ class EditBtn extends Component {
   };
 
   componentDidMount() {
-  console.log(this.props)
     const {name, process, country, weight, cost} = this.props.coffee;
     this.setState({name, process, country, weight, cost})
     const options = {

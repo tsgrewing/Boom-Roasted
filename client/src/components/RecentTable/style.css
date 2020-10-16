@@ -1,4 +1,6 @@
 .recentTable {
     width: 20%;
     margin-left: 10%;
+    border-radius: 15px;
+    border: 2px solid black;
 }
