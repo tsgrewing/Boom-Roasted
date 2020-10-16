@@ -19,7 +19,14 @@ class Messages extends Component {
 
     componentWillMount() {
         this.getRecentMsgs()
+        this.getUser()
+    };
+
+    getUser = async() => {
+        const username = await axios.get(`api/users/${this.props.auth.user.id}`)
+        this.setState({username: username.data.username})
     }
+
     messageSelect(e) {
         console.log(e)
         this.setState({currentMsg: e})
@@ -109,7 +116,7 @@ class Messages extends Component {
                 <MsgCategory 
                 messages={this.state.recentMessages}
                 category={this.state.category}
-                user={user.id}
+                user={user}
                 currentMsg={this.state.currentMsg}
                 messageSelect={this.messageSelect}
                 getDate={this.getDate}
@@ -120,6 +127,8 @@ class Messages extends Component {
               {/* if a current message has been selected display it here */}
               {this.state.currentMsg && 
                 <CurrentMessage message={this.state.currentMsg}
+                user={user}
+                username={this.state.username}
                 getDate={this.getDate}
                  />
               }

@@ -29,7 +29,6 @@ router.post("/register", (req, res) => {
     {email: req.body.email},
     {username: req.body.username}
   ]}).then(user => {
-    console.log(user)
     if (user && user.email === req.body.email) {
       return res.status(400).json({ email: "Email already exists" });
     }
@@ -113,6 +112,12 @@ router.post("/login", (req, res) => {
       }
     });
   });
+});
+
+router.get('/:id', (req, res) => {
+  User.findById(req.params.id)
+  .then(response => res.json(response))
+  .catch(err => res.json(err))
 });
 
 module.exports = router;

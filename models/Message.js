@@ -26,6 +26,10 @@ const MessageSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
+  },
+  replies: {
+    type: Array,
+    default: []
   }
 });
 
