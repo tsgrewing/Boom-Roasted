@@ -57,7 +57,7 @@ class Navbar extends Component {
           </div>
         </nav>
       </div>
-      <ul class="sidenav green" id="mobile-menu">
+      <ul class="sidenav white-text" id="mobile-menu">
               <li><Link to="/dashboard">Home</Link></li>
               <li><Link to="/roast">Roast</Link></li>
               <li><Link to="/history">Roast History</Link></li>

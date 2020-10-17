@@ -10,7 +10,9 @@
     margin-top: .15em;
 }
 
-
+.sidenav {
+    background-color: #448a44af!important;
+}
 
 .navLinkContainer {
     height: 3em;
