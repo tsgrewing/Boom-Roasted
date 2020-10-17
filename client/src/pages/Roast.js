@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import CurrentRoast from "../components/CurrentRoast";
+import Navbar from "../components/Navbar";
+
 
 
 class Roast extends Component {
@@ -16,12 +18,13 @@ class Roast extends Component {
   render() {
 
     return (
-
+      <>
+        <Navbar />
           <div className="container center-align">
             <CurrentRoast 
             user={this.state.user}/>
           </div>
-
+      </>
     );
   }
 }

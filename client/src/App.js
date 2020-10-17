@@ -48,8 +48,7 @@ class App extends Component {
       <Provider store={store}>
         <>
         <Router>
-          <>
-          <Navbar />
+
           <main className="App">
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
@@ -63,7 +62,7 @@ class App extends Component {
             </Switch>
             
           </main>
-          </>
+
         </Router>
         <Footer />
         </>

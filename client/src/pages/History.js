@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import RoastHistory from "../components/RoastHistory";
 import PastDetails from "../components/PastDetails";
+import Navbar from "../components/Navbar";
+
 import axios from "axios";
 
 
@@ -44,6 +46,8 @@ class History extends Component {
     const roastDetails = this.state.roastDetails;
     const roastNotes = this.state.roastNotes;
     return (
+      <>
+      <Navbar />
         <div className="row center-align">
           <div className="landing-copy col s12 center-align">
             <h4>
@@ -61,6 +65,7 @@ class History extends Component {
           }
           </div>
         </div>
+        </>
     );
   };
 };
