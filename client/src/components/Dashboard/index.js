@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import axios from "axios";
 import RecentTable from "../RecentTable";
+import Navbar from "../Navbar";
 import "./style.css"
 
 class Dashboard extends Component {
@@ -45,6 +46,8 @@ class Dashboard extends Component {
   render() {
     const { user } = this.props.auth;
     return (
+      <>
+      <Navbar />
         <div className="row">
           <div className="landing-copy col s12 center-align">
             <h4>
@@ -72,6 +75,7 @@ class Dashboard extends Component {
             </div>
           </div>
         </div>
+        </>
     );
   }
 }

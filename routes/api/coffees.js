@@ -12,7 +12,6 @@ router.get('/', (req, res) => {
 // get all coffees from user
 router.get('/:user', (req, res) => {
   Coffee.find({user: req.params.user})
-  .sort({weight: -1})
   .then(coffees => res.json(coffees))
   .catch(err => res.json(err))
 })
@@ -26,6 +25,8 @@ router.post('/', (req, res) => {
 
 // update a coffee's weight in inventory
 router.put('/:id', (req, res) => {
+  console.log(req.params.id)
+  console.log(req.body)
   Coffee.findByIdAndUpdate({ _id: req.params.id }, req.body)
   .then(roast => res.json(roast))
   .catch(err => res.json(err))
