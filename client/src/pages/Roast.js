@@ -4,8 +4,6 @@ import { connect } from "react-redux";
 import CurrentRoast from "../components/CurrentRoast";
 import Navbar from "../components/Navbar";
 
-
-
 class Roast extends Component {
   constructor(props) {
     super(props);
@@ -20,10 +18,10 @@ class Roast extends Component {
     return (
       <>
         <Navbar />
-          <div className="container center-align">
+        <div className="row mainRow">
             <CurrentRoast 
             user={this.state.user}/>
-          </div>
+        </div>
       </>
     );
   }

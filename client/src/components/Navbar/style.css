@@ -11,6 +11,8 @@
 }
 
 .sidenav {
+    background-image: url("../../assets/images/cherry.JPG");
+
     background-color: #448a44af!important;
 }
 
@@ -22,6 +24,6 @@
 }
 
 .nav-wrapper {
-    background-color: green;
+    background-image: url("../../assets/images/cherry.JPG");
 }
 

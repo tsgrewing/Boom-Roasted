@@ -65,9 +65,9 @@ class Messages extends Component {
     render() {
         const { user } = this.props.auth;
         return (
-          <div  className="container messageBoard">
+          <div  className=" messageBoard">
             <div className="row">
-              <div className="landing-copy col s12 center-align">
+              <div className="col s12 center-align">
                 <h4>Discussions</h4>
                 <NewMessage 
                 username={this.state.username}
@@ -75,7 +75,7 @@ class Messages extends Component {
                 updateMessages={this.getRecentMsgs}/>
               </div>
               {/* category selection bar */}
-              <div className="row center-align collection">
+              <div className="center-align collection">
                 <button
                   className="btn-flat col s3 floating collection-item"
                   title="general"

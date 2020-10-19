@@ -11,8 +11,8 @@ class Social extends Component {
     return (
       <>
       <Navbar />
-        <div className="row center-align">
-          <div className="landing-copy col s10 offset-s1 center-align">
+        <div className="row mainRow">
+          <div className="mainWrapper col s10 offset-s1 center-align">
             <Messages />
           </div>
         </div>

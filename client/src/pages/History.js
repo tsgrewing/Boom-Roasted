@@ -47,25 +47,21 @@ class History extends Component {
     const roastNotes = this.state.roastNotes;
     return (
       <>
-      <Navbar />
-        <div className="row center-align">
-          <div className="landing-copy col s12 center-align">
+        <Navbar />
+        <div className="row mainRow">
+          <div className="col mainWrapper s10 offset-s1 center-align">
             <h4>
               <b>Roast History</b>
             </h4>
-          </div>
-          <div className="row center-align">
-          <RoastHistory 
-          loadDetails={this.loadDetails}/>
-          {roastDetails.length !== 0 &&
-          <PastDetails 
-          roastData={roastDetails}
-          notes={roastNotes}
-          />
-          }
+            <div className="row center-align">
+              <RoastHistory loadDetails={this.loadDetails} />
+              {roastDetails.length !== 0 && (
+                <PastDetails roastData={roastDetails} notes={roastNotes} />
+              )}
+            </div>
           </div>
         </div>
-        </>
+      </>
     );
   };
 };

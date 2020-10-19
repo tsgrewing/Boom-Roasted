@@ -1,3 +1,17 @@
-.recentTable {
-    margin-left: 10%
+.dashRow {
+    margin-bottom:  0;
+
 }
+
+/* h4 {
+    color: white;
+    text-shadow: -2px 0 rgba(66, 145, 66), 0 2px rgba(66, 145, 66), 2px 0 rgba(66, 145, 66), 0 -2px rgba(66, 145, 66);
+} */
+
+h2 {
+    color: white;  /* Fallback: assume this color ON TOP of image */
+    /* background: url("../../assets/images/cherry2.JPG") no-repeat; */
+    /* -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+    /* background-color: white; */
+ }

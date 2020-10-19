@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import "./style.css";
 
 class Landing extends Component {
   render() {
     return (
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
-          <div className="col s12 center-align">
+          <div className="col s12 center-align landingWrapper">
             <h4>
               Welcome to Boom Roasted
             </h4>

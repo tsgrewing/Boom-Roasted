@@ -87,7 +87,7 @@ class NewMessage extends Component {
                 <form className="col s12" onSubmit={this.postMessage}>
                 <div className="row">
                     <div className="input-field col s6">
-                        <input id="title" type="text" value={this.state.title} className="validate" name="title" onChange={this.onChange} />
+                        <input id="title" type="text" defaultValue={this.state.title} className="validate" name="title" onChange={this.onChange} />
                         <label htmlFor="title">Title</label>
                     </div>
                     <div className="input-field col s6">
@@ -103,7 +103,7 @@ class NewMessage extends Component {
                       required
                       name="category"
                       placeholder="Select a category"
-                      value={this.state.category}
+                      defaultValue="Select a category"
                       onChange={e => this.setState({category: e.value})}
                       />
                     </div>

@@ -155,7 +155,7 @@ class CurrentRoast extends Component {
     render() {
 
         return (
-            <div className="roastWrapper col s-12 left-align">
+            <div className="mainWrapper col s10 offset-s1 left-align">
                 <Timer
                           startImmediately={false}
                           formatValue={(value) => `${(value < 10 ? `0${value}` : value)}:`}

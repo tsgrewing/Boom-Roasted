@@ -3,17 +3,22 @@ import "./style.css"
 
 class RecentTable extends Component {
   render() {
+    
     return (
-        <div className="col recentTable">
+        <div className="col l3 recentTable">
             <h5 className="center-align">{this.props.title}</h5>
-            <table className="stiped centered">
+            <hr></hr>
+            <table className="highlight responsive-table">
                 {this.props.title ==="Top Inventory"
                 ?
                 <>
                 <thead>
-                  <th>Coffee</th>
-                  <th>Weight</th>
+                  <tr>
+                    <th>Coffee</th>
+                    <th>Weight</th>
+                  </tr>
                 </thead>
+                <tbody>
                 {
                   this.props.contents.map(green => 
                       <tr key={green._id + "row"}>
@@ -22,15 +27,19 @@ class RecentTable extends Component {
                       </tr>
                   )
                 }
+                </tbody>
                 </>
                 :
                 this.props.title ==="Recent Roasts"
                 ?
                 <>
                 <thead>
-                  <th>Coffee</th>
-                  <th>Date</th>
+                  <tr>
+                    <th>Coffee</th>
+                    <th>Date</th>
+                    </tr>
                 </thead>
+                <tbody>
                 {
                   this.props.contents.map(batch => {
                     const d = new Date(batch.date);
@@ -47,15 +56,19 @@ class RecentTable extends Component {
                     )
                   })
                 }
+                </tbody>
                 </>
                 :
                 this.props.title ==="Recent Messages"
                 ?
                 <>
                 <thead>
-                  <th>Title</th>
-                  <th>Date</th>
+                  <tr>
+                    <th>Title</th>
+                    <th>Date</th>
+                    </tr>
                 </thead>
+                <tbody>
                 {
                   this.props.contents.map(msg => {
                     const d = new Date(msg.date);
@@ -72,11 +85,13 @@ class RecentTable extends Component {
                     )
                   })
                 }
+                </tbody>
                 </>
                 :
                 null
                 }
             </table>
+
         </div>
     );
   }

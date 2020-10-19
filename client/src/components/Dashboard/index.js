@@ -20,23 +20,27 @@ class Dashboard extends Component {
 
   };
 
+  // Load the  most recent messages from the database
   getRecentMsgs= async()=> {
     const msgs = await axios.get(`/api/messages/`);
     this.setState({recentMessages: (msgs.data.slice(0, 5))})
   };
 
+  // load the most recent roasts from the database
   getHistory = async () => {
     const userHistory = this.props.auth.user.id
     const roast = await axios.get(`/api/roasts/user/${userHistory}`);
     this.setState({history: (roast.data.slice(0, 5))})
   };
 
+  // load the coffees with the highest inventory from the database
   getInventory = async () => {
     const userInv = this.props.auth.user.id
     const green = await axios.get(`/api/coffees/${userInv}`);
     this.setState({inventory: (green.data.slice(0,5))})
   }
 
+  // call functions to get recent roasts/messages and inventory
   componentDidMount(){
     this.getHistory();
     this.getInventory();
@@ -48,14 +52,13 @@ class Dashboard extends Component {
     return (
       <>
       <Navbar />
-        <div className="row">
-          <div className="landing-copy col s12 center-align">
-            <h4>
-              <b>Hey there,{user.name.split(" ")[0]}</b>
-              <p className="flow-text grey-text text-darken-1">
-                You're ready to roast
-              </p>
-            </h4>
+        <div className="row dashRow valign-wrapper">
+          <div className="col s12 center-align">
+            <h2 >
+              <b>Welcome, {user.name.split(" ")[0]}, you're ready to roast</b>
+            </h2>
+            <br></br>
+            <br></br>
             <div className="row center-align recentTableRow">
             <RecentTable 
             title="Top Inventory"

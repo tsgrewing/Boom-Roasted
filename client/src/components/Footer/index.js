@@ -1,14 +1,14 @@
 import React, { Component } from "react";
-import "./style.css";
+
 
 class Footer extends Component {
   render() {
     return (
         <footer className="page-footer">
-          <div className="footer-copyright">
+          <div className="footer-copyright ">
             <div className="container">
-            © 2020 tsgrewing 
-            <a className="grey-text text-lighten-4 right" href="http://www.github.com/tsgrewing/Boom-Roasted">Github Repository</a>
+            <b>© 2020 tsgrewing </b>
+            <a className="grey-text text-lighten-4 right" href="http://www.github.com/tsgrewing/Boom-Roasted"><b>Github Repository</b></a>
             </div>
           </div>
         </footer>

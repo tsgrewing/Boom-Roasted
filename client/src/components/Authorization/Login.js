@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
+import "./style.css"
 
 class Login extends Component {
   constructor() {
@@ -55,7 +56,7 @@ class Login extends Component {
     return (
       <div className="container">
         <div style={{ marginTop: "4rem" }} className="row">
-          <div className="col s8 offset-s2">
+          <div className="col s8 offset-s2 authWrapper">
             <Link to="/" className="btn-flat waves-effect">
               <i className="material-icons left">keyboard_backspace</i> Back to
               home
@@ -69,7 +70,7 @@ class Login extends Component {
               </p>
             </div>
             <form noValidate onSubmit={this.onSubmit}>
-              <div className="input-field col s12">
+              <div className="input-field col s12 black-text">
                 <input
                   onChange={this.onChange}
                   value={this.state.email}

@@ -25,30 +25,31 @@ class Navbar extends Component {
     const isLoggedIn = this.props.auth.isAuthenticated;
     return (
       <header>
-      <div className="navbar-fixed">
+      <div className="navbar-fixed green">
         <nav className="z-depth-0">
           <div className="nav-wrapper green center">
-          <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-          <div class="center hide-on-med-and-down">
+          {/* eslint-disable-next-line */}
+          <a href="#" data-target="mobile-menu" className="sidenav-trigger green btn-flat show-on-med-and-down"><i className="material-icons">menu</i></a>
+          <div className="center hide-on-med-and-down">
           
             <Link to="/dashboard" style={{fontFamily: "monospace"}} className="col navLinkContainer">
-            <button className="navbtn" title="Home"><i className="fas fa-home white-text"></i></button>
+            <button className="navbtn hoverable waves-effect waves-green" title="Home"><i className="fas fa-home white-text"></i></button>
             </Link>
             
             <Link to="/roast" style={{fontFamily: "monospace"}} className="col navLinkContainer">
-            <button className="navbtn" title="Roast"><i className="fas fa-fire white-text"></i></button>
+            <button className="navbtn hoverable waves-effect waves-green" title="Roast"><i className="fas fa-fire white-text"></i></button>
             </Link>
             
             <Link to="/history" style={{fontFamily: "monospace"}} className="col navLinkContainer">
-            <button className="navbtn" title="History"><i className="fas fa-history white-text"></i></button>
+            <button className="navbtn hoverable waves-effect waves-green" title="History"><i className="fas fa-history white-text"></i></button>
             </Link>
             
             <Link to="/inventory" style={{fontFamily: "monospace"}} className="col navLinkContainer">
-            <button className="navbtn" title="Inventory"><i className="fas fa-boxes white-text"></i></button>
+            <button className="navbtn hoverable waves-effect waves-green" title="Inventory"><i className="fas fa-boxes white-text"></i></button>
             </Link>
             
             <Link to="/social" style={{fontFamily: "monospace"}} className="col navLinkContainer">
-            <button className="navbtn" title="Social"><i className="fas fa-users white-text"></i></button>
+            <button className="navbtn hoverable waves-effect waves-green" title="Social"><i className="fas fa-users white-text"></i></button>
             </Link>
             
             {isLoggedIn && <Logout />}
@@ -57,7 +58,7 @@ class Navbar extends Component {
           </div>
         </nav>
       </div>
-      <ul class="sidenav white-text" id="mobile-menu">
+      <ul className="sidenav" id="mobile-menu">
               <li><Link to="/dashboard">Home</Link></li>
               <li><Link to="/roast">Roast</Link></li>
               <li><Link to="/history">Roast History</Link></li>
