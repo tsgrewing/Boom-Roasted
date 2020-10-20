@@ -5,9 +5,8 @@ import axios from "axios";
 import RecentTable from "../RecentTable";
 import Navbar from "../Navbar";
 import { Link } from "react-router-dom";
-
 import "./style.css"
-import { get } from "mongoose";
+
 
 class Dashboard extends Component {
   constructor(props) {

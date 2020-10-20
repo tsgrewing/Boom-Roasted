@@ -114,7 +114,7 @@ class Navbar extends Component {
             </div>
           </nav>
         </div>
-        <ul className="sidenav" id="mobile-menu">
+        <ul className="sidenav white-text" id="mobile-menu">
           <li>
             <Link to="/dashboard">Home</Link>
           </li>
