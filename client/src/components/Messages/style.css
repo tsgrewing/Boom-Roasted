@@ -1,8 +1,32 @@
 /* .row .center-align .collection{
     border: 1px solid black
 } */
-
-.collection-item {
-    border: 1px solid black;
+.collection .collection-item{
+    background-color: transparent;
 }
 
+.collection-item {
+    border-width: 0 2px 0 0;
+    border: solid white;
+    color: white;
+}
+
+.collection {
+    background-image: url("../../assets/images/cherrybanner.JPG");
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: 53%;
+}
+
+h3 {
+    color: black;  /* Fallback: assume this color ON TOP of image */
+    /* background: url("../../assets/images/coffee.jpg") no-repeat;
+    background-size: cover;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-color: white; */
+ }
+
+ .msgTitle {
+     background-color: transparent;
+ }

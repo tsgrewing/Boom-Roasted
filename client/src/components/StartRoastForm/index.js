@@ -46,7 +46,7 @@ export class StartRoastForm extends Component {
                     </div>
 
                     <div className="input-field col s3">
-                        <button type="submit" className="waves-effect waves-light btn">Start Roast</button>
+                        <button type="submit" className="waves-effect green waves-light btn">Start Roast</button>
                     </div>
 
                     </div>

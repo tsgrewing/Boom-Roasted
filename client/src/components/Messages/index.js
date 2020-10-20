@@ -67,8 +67,8 @@ class Messages extends Component {
         return (
           <div  className=" messageBoard">
             <div className="row">
-              <div className="col s12 center-align">
-                <h4>Discussions</h4>
+              <div className="col s12 center-align msgTitle">
+                <h3><b>Discussions</b></h3>
                 <NewMessage 
                 username={this.state.username}
                 user={user}
@@ -81,28 +81,28 @@ class Messages extends Component {
                   title="general"
                   onClick={(e) => this.categorySelect(e)}
                 >
-                  General
+                  <b>General</b>
                 </button>
                 <button
                   className="btn-flat col s3 floating collection-item"
                   title="green"
                   onClick={(e) => this.categorySelect(e)}
                 >
-                  Green Coffee
+                  <b>Green Coffee</b>
                 </button>
                 <button
                   className="btn-flat col s3 floating collection-item"
                   title="trades"
                   onClick={(e) => this.categorySelect(e)}
                 >
-                  Trades
+                  <b>Trades</b>
                 </button>
                 <button
                   className="btn-flat col s3 floating collection-item"
                   title="advice"
                   onClick={(e) => this.categorySelect(e)}
                 >
-                  Roast Advice
+                  <b>Roast Advice</b>
                 </button>
               </div>
 

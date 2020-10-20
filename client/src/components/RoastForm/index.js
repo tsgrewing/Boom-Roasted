@@ -25,7 +25,7 @@ class RoastForm extends Component {
                     <div className="row center-align">
                       {this.props.turn === 0 ? (
                         <button
-                          className="eventBtn waves-effect waves-light btn "
+                          className="eventBtn green waves-effect waves-light btn "
                           type="button"
                           value="turn"
                           onClick={(e) => {
@@ -38,7 +38,7 @@ class RoastForm extends Component {
                         </button>
                       ) : this.props.change === 0 ? (
                         <button
-                          className="eventBtn waves-effect waves-light btn  "
+                          className="eventBtn green waves-effect waves-light btn  "
                           type="button"
                           value="change"
                           onClick={(e) => {
@@ -51,7 +51,7 @@ class RoastForm extends Component {
                         </button>
                       ) : this.props.first === 0 ? (
                         <button
-                          className="eventBtn waves-effect waves-light btn "
+                          className="eventBtn green waves-effect waves-light btn "
                           type="button"
                           value="first"
                           onClick={(e) => {
@@ -64,7 +64,7 @@ class RoastForm extends Component {
                         </button>
                       ) : (
                         <button
-                          className="eventBtn waves-effect waves-light btn "
+                          className="eventBtn green waves-effect waves-light btn "
                           type="button"
                           value="drop"
                           onClick={(e) => {

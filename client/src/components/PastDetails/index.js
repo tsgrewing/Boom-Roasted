@@ -36,26 +36,25 @@ class PastDetails extends Component {
         if (roastData[0].length !== 0){
             // data to render the line chart
             const chartData = {
-                labels: [selectedRoast.charge.time, selectedRoast.turn.time, selectedRoast.change.time, selectedRoast.first.time, selectedRoast.drop.time],
                 datasets: [
                     {
                         label: selectedRoast.name,
                         fill: false,
                         lineTension: 0.25,
                         backgroundColor: 'rgba(75,192,192,0.4)',
-                        borderColor: 'rgba(75,192,192,1)',
+                        borderColor: 'rgba(66, 145, 66)',
                         borderCapStyle: 'butt',
                         borderDash: [],
                         borderDashOffset: 0.0,
                         borderJoinStyle: 'miter',
-                        pointBorderColor: 'rgba(75,192,192,1)',
+                        pointBorderColor: 'rgba(66, 145, 66)',
                         pointBackgroundColor: '#fff',
                         pointBorderWidth: 1,
                         pointHoverRadius: 5,
-                        pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+                        pointHoverBackgroundColor: 'rgba(66, 145, 66)',
                         pointHoverBorderColor: 'rgba(220,220,220,1)',
                         pointHoverBorderWidth: 2,
-                        pointRadius: 1,
+                        pointRadius: 3,
                         pointHitRadius: 10,
                         data: [
                             {x: selectedRoast.charge.time, y: selectedRoast.charge.temp},
@@ -67,13 +66,39 @@ class PastDetails extends Component {
                     }
                 ],
             };
+            const chartOptions = {
+                scales: {
+                    ticks: {
+                        min:"0:00",
+                        source: 'data'
+                    },
+                    xAxes: [{
+                        ticks: {
+                            beginAtZero: true
+
+                            },
+                        type: 'time',
+                        distribution: 'linear',
+                        time: {
+                            parser:"mm:ss",
+                            // max:"16:00",
+                            // min: "0:00",
+                            unit: 'minute',
+                            displayFormats: {
+                                minute: "mm:ss"
+                            }
+                        }
+                    }]
+                }
+            }
             
             return (
                 <div className="HistTableWrapper col s8">
                     {/* chart to display the roast curve of the selected batch */}
                     <div className="row past-chart-wrapper">
                         <Line
-                        data={chartData} />
+                        data={chartData}
+                        options={chartOptions} />
                     </div>
                     <div className="row past-table-wrapper">
                         <table className="col s12 centered bordered past-table">
