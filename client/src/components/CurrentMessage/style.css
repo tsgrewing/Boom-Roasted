@@ -3,5 +3,17 @@
 }
 
 .replyWrapper, .messageWrapper, .replyFormWrapper {
-    border: 1px solid #0000009c
+    border: 2px solid #0000009c;
+    border-radius: 10px;
+    background-color: rgba(66, 145, 66, 0.767);
+    color: white;
+}
+
+.postRow, .replyFormWrapper, .replyRow {
+    margin-left: .25em!important;
+    margin-right: .25em!important;
+}
+
+.postReply {
+    background-color: white!important;
 }

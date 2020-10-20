@@ -69,7 +69,7 @@ class MsgCategory extends Component {
                 <div className="col s12">
                 <h6 className="left-align">Reply:</h6>
                 <form data-parent={currentMsg._id} onSubmit={e => this.sendReply(e)}>
-                <textarea name="replyText" className="validate" value={this.state.replyText} style={{resize: 'none'}} rows={15} onChange={e => this.setState({replyText: e.target.value})}></textarea>
+                <textarea className="postReply" name="replyText" className="validate" value={this.state.replyText} style={{resize: 'none'}} rows={15} onChange={e => this.setState({replyText: e.target.value})}></textarea>
                 <p className="right-align"><button className="replyBtn">Reply</button></p>
                 </form>
                 </div>

@@ -9,6 +9,7 @@
     border-width: 0 2px 0 0;
     border: solid white;
     color: white;
+    height: 2em;
 }
 
 .collection {
@@ -27,10 +28,10 @@ h3 {
     background-color: white; */
  }
 
- .msgTitle {
+ /* .msgTitle {
      background-color: transparent;
  }
 
  .messageBoard {
      background-color: transparent;
- }
+ } */
