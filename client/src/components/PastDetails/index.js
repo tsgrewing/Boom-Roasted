@@ -144,7 +144,7 @@ class PastDetails extends Component {
                                             onChange={e => {
                                                 this.setState({ notes: e.target.value})
                                             }} ></textarea>
-                                            <button type="submit" className="waves-effect waves-light btn" >save</button>
+                                            <button type="submit" className="waves-effect waves-light green btn" >save</button>
                                             </form>
                                         }
                                         </td>

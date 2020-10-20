@@ -97,12 +97,12 @@ class EditBtn extends Component {
                 </form>
                 <div className="row">
                 <div className="col s6 center-align">
-                    <button className="center-align btn waves-effect waves-light modal-close green" type="submit" onClick={this.updateCoffee} name="action">Submit
+                    <button className="center-align btn waves-effect waves-light modal-close green" type="submit" onClick={this.updateCoffee} name="action">Submit 
                     <i className="far fa-save"></i>
                     </button>
                 </div>
                 <div className="col s6 center-align">
-                    <button className="center-align btn waves-effect waves-light modal-close red" type="submit" onClick={e => e.preventDefault()} name="action">Cancel
+                    <button className="center-align btn waves-effect waves-light modal-close red" type="submit" onClick={e => e.preventDefault()} name="action">Cancel 
                     <i className="far fa-window-close"></i>
                     </button>
                 </div>
