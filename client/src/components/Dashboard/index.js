@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import axios from "axios";
 import RecentTable from "../RecentTable";
 import Navbar from "../Navbar";
+import { Link } from "react-router-dom";
+
 import "./style.css"
 
 class Dashboard extends Component {
@@ -54,9 +56,16 @@ class Dashboard extends Component {
       <Navbar />
         <div className="row dashRow valign-wrapper">
           <div className="col s12 center-align">
+            {this.state.inventory[0] 
+            ?
             <h2 >
               <b>Welcome, {user.name.split(" ")[0]}, you're ready to roast</b>
             </h2>
+            :
+            <h2 >
+              <b>Welcome, {user.name.split(" ")[0]}, <Link className="addInventory" to="/inventory">add some coffee to your inventory to start roasting.</Link></b>
+            </h2>
+            }
             <br></br>
             <br></br>
             <div className="row center-align recentTableRow">

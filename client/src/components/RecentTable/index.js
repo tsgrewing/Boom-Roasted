@@ -21,7 +21,8 @@ class RecentTable extends Component {
                   </tr>
                 </thead>
                 <tbody>
-                {
+                {this.props.contents[0]
+                ?
                   this.props.contents.map(green => 
                       <tr key={green._id + "row"} data-tip data-for={green._id}>
                         <td key={green.name}>{green.name}</td>
@@ -37,8 +38,9 @@ class RecentTable extends Component {
                           </ul>
                         </ReactTooltip>
                       </tr>
-
                   )
+                  :
+                  <tr><td colSpan='2'>No coffees in inventory yet...</td></tr>
                 }
                 </tbody>
                 </>
@@ -53,7 +55,8 @@ class RecentTable extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                {
+                {this.props.contents[0]
+                ?
                   this.props.contents.map(batch => {
                     const d = new Date(batch.date);
                     const year = d.getFullYear().toString().substr(-2);
@@ -79,6 +82,8 @@ class RecentTable extends Component {
                       </tr>
                     )
                   })
+                  :
+                  <tr><td colSpan="2">You haven't saved any roasts yet...</td></tr>
                 }
                 </tbody>
                 </>
