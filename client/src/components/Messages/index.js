@@ -65,7 +65,7 @@ class Messages extends Component {
     render() {
         const { user } = this.props.auth;
         return (
-          <div  className=" messageBoard">
+          <div  className="messageBoard">
             <div className="row">
               <div className="col s12 center-align msgTitle">
                 <h3><b>Discussions</b></h3>

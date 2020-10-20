@@ -31,3 +31,8 @@
     background-color: transparent;
     color: white;
 }
+
+.navToolTip {
+    font-size: 20px!important;
+    border: 2px solid white !important;
+}

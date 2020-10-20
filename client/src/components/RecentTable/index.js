@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./style.css"
+import ReactTooltip from "react-tooltip";
+
 
 class RecentTable extends Component {
   render() {
@@ -21,10 +23,21 @@ class RecentTable extends Component {
                 <tbody>
                 {
                   this.props.contents.map(green => 
-                      <tr key={green._id + "row"}>
+                      <tr key={green._id + "row"} data-tip data-for={green._id}>
                         <td key={green.name}>{green.name}</td>
                         <td key={green._id + "weight"}>{green.weight} lbs</td>
+                        <ReactTooltip 
+                        id={green._id}
+                        place="right"
+                        >
+                          <ul>
+                            <li>{"Name: " + green.name}</li>
+                            <li>{"Weight: " + green.weight}</li>
+                            <li>{`Cost: $${green.cost}`}</li>
+                          </ul>
+                        </ReactTooltip>
                       </tr>
+
                   )
                 }
                 </tbody>
@@ -49,9 +62,20 @@ class RecentTable extends Component {
                     const roastTime = (d.getHours() +":" +('0' + (d.getMinutes())).slice(-2));
                     const roastDate = month+'/'+day+'/'+year + " " + roastTime
                     return ( 
-                      <tr key={batch._id + "row"}>
+                      <tr key={batch._id + "row"} data-tip data-for={batch._id}>
                         <td key={batch.name}>{batch.name}</td>
                         <td key={batch._id + "date"}>{roastDate}</td>
+                        <ReactTooltip 
+                        id={batch._id}
+                        place="right"
+                        >
+                          <ul>
+                            <li>{`Name: ${batch.name}`}</li>
+                            <li>{`Date: ${roastDate}`}</li>
+                            <li>{`First: ${batch.first.temp} @ ${batch.first.time}`}</li>
+                            <li>{`Drop: ${batch.drop.temp} @ ${batch.drop.time}`}</li>
+                          </ul>
+                        </ReactTooltip>
                       </tr>
                     )
                   })
