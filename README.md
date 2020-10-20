@@ -16,7 +16,7 @@ Boom, Roasted was created to assist small scale commercial coffee roasters and a
 [Questions](#Questions)
   
 ## Demo
-![Demo](/demo/demo.gif)
+![Demo](/client/src/assets/images/demo.gif)
 
   
 ## Usage
