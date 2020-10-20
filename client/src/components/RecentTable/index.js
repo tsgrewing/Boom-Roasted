@@ -26,7 +26,7 @@ class RecentTable extends Component {
                   this.props.contents.map(green => 
                       <tr key={green._id + "row"} data-tip data-for={green._id}>
                         <td key={green.name}>{green.name}</td>
-                        <td key={green._id + "weight"}>{green.weight} lbs</td>
+                        <td key={green._id + "weight"}>{green.weight} lbs
                         <ReactTooltip 
                         id={green._id}
                         place="right"
@@ -37,6 +37,7 @@ class RecentTable extends Component {
                             <li>{`Cost: $${green.cost}`}</li>
                           </ul>
                         </ReactTooltip>
+                        </td>
                       </tr>
                   )
                   :
@@ -67,7 +68,7 @@ class RecentTable extends Component {
                     return ( 
                       <tr key={batch._id + "row"} data-tip data-for={batch._id}>
                         <td key={batch.name}>{batch.name}</td>
-                        <td key={batch._id + "date"}>{roastDate}</td>
+                        <td key={batch._id + "date"}>{roastDate}
                         <ReactTooltip 
                         id={batch._id}
                         place="right"
@@ -79,6 +80,8 @@ class RecentTable extends Component {
                             <li>{`Drop: ${batch.drop.temp} @ ${batch.drop.time}`}</li>
                           </ul>
                         </ReactTooltip>
+                        </td>
+
                       </tr>
                     )
                   })

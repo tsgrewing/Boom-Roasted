@@ -7,6 +7,7 @@ import Navbar from "../Navbar";
 import { Link } from "react-router-dom";
 
 import "./style.css"
+import { get } from "mongoose";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -19,8 +20,16 @@ class Dashboard extends Component {
     this.getInventory = this.getInventory.bind(this);
     this.getRecentMsgs = this.getRecentMsgs.bind(this);
     this.getHistory = this.getHistory.bind(this);
-
   };
+
+  // Scrape daily coffee news for headlines
+  getNews = async() => {
+    axios.get(`https://dailycoffeenews.com/`)
+    .then(res => {
+      console.log(res.data)
+    })
+    .catch(err => {console.log(err)})
+  }
 
   // Load the  most recent messages from the database
   getRecentMsgs= async()=> {
@@ -47,6 +56,7 @@ class Dashboard extends Component {
     this.getHistory();
     this.getInventory();
     this.getRecentMsgs();
+    this.getNews()
   }
 
   render() {
