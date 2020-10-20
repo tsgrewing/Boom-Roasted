@@ -23,15 +23,15 @@ Boom, Roasted was created to assist small scale commercial coffee roasters and a
 ## Development
 This App uses:
 MERN Stack(MongoDb, Express, React, Node.js)
--[bcryptjs](https://www.npmjs.com/package/bcryptjs)
--[chart.js](https://www.chartjs.org/)
--[Materialize css](https://materializecss.com/)
--[Mongoose](https://mongoosejs.com/)
--[Passport](http://www.passportjs.org/)
--[React-Compound-Timer](https://github.com/volkov97/react-compound-timer)
--[React-Chartjs-2](https://github.com/jerairrest/react-chartjs-2)
--[React-Tooltip](https://github.com/wwayne/react-tooltip)
--Thanks to [Rishi Prasad](https://github.com/rishipr) for his [walkthrough](https://blog.bitsrc.io/build-a-login-auth-app-with-mern-stack-part-1-c405048e3669) on implementing authorization in a MERN app.
+- [bcryptjs](https://www.npmjs.com/package/bcryptjs)
+- [chart.js](https://www.chartjs.org/)
+- [Materialize css](https://materializecss.com/)
+- [Mongoose](https://mongoosejs.com/)
+- [Passport](http://www.passportjs.org/)
+- [React-Compound-Timer](https://github.com/volkov97/react-compound-timer)
+- [React-Chartjs-2](https://github.com/jerairrest/react-chartjs-2)
+- [React-Tooltip](https://github.com/wwayne/react-tooltip)
+- Thanks to [Rishi Prasad](https://github.com/rishipr) for his [walkthrough](https://blog.bitsrc.io/build-a-login-auth-app-with-mern-stack-part-1-c405048e3669) on implementing authorization in a MERN app.
 
 ## Future Development
 Plans for future development include:
