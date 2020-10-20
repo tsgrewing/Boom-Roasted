@@ -7,20 +7,17 @@ import Navbar from "../components/Navbar";
 class Roast extends Component {
   constructor(props) {
     super(props);
-      this.state= {
-        user: this.props.auth.user.id,
-      }
+    this.state = {
+      user: this.props.auth.user.id,
+    };
   }
 
-
   render() {
-
     return (
       <>
         <Navbar />
         <div className="row mainRow">
-            <CurrentRoast 
-            user={this.state.user}/>
+          <CurrentRoast user={this.state.user} />
         </div>
       </>
     );
@@ -28,11 +25,11 @@ class Roast extends Component {
 }
 
 Roast.propTypes = {
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
-  auth: state.auth
+const mapStateToProps = (state) => ({
+  auth: state.auth,
 });
 
 export default connect(mapStateToProps)(Roast);

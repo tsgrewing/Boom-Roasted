@@ -3,7 +3,6 @@ import { logoutUser } from "../../actions/authActions";
 import { connect } from "react-redux";
 import ReactTooltip from "react-tooltip";
 
-
 class Logout extends Component {
   onLogoutClick = (e) => {
     e.preventDefault();

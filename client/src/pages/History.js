@@ -7,39 +7,37 @@ import Navbar from "../components/Navbar";
 
 import axios from "axios";
 
-
 class History extends Component {
   constructor(props) {
     super(props);
-    this.state= {
-      roastDetails:[],
-      roastNotes: ''
-    }
+    this.state = {
+      roastDetails: [],
+      roastNotes: "",
+    };
     this.loadDetails = this.loadDetails.bind(this);
-  };
+  }
 
-  loadDetails = async(id) => {
-    const selectedRoast = await axios.get("/api/roasts/id/"+ id)
-    if (selectedRoast.data.notes){
+  loadDetails = async (id) => {
+    const selectedRoast = await axios.get("/api/roasts/id/" + id);
+    if (selectedRoast.data.notes) {
       this.setState({
         roastDetails: selectedRoast.data,
-        roastNotes: selectedRoast.data.notes
-      })
-    }
-    else {
+        roastNotes: selectedRoast.data.notes,
+      });
+    } else {
       this.setState({
-        roastDetails:{
-          notes: 'Add notes',
+        roastDetails: {
+          notes: "Add notes",
           change: selectedRoast.data.change,
           charge: selectedRoast.data.charge,
           name: selectedRoast.data.name,
-          drop:selectedRoast.data.drop,
+          drop: selectedRoast.data.drop,
           first: selectedRoast.data.first,
-          turn: selectedRoast.data.turn
+          turn: selectedRoast.data.turn,
         },
-        roastNotes: "Add notes"
-      })
-    }    
+        roastNotes: "Add notes",
+      });
+    }
   };
 
   render() {
@@ -63,15 +61,15 @@ class History extends Component {
         </div>
       </>
     );
-  };
-};
+  }
+}
 
 History.propTypes = {
   auth: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
-  auth: state.auth
+const mapStateToProps = (state) => ({
+  auth: state.auth,
 });
 
 export default connect(mapStateToProps)(History);

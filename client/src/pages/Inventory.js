@@ -4,22 +4,18 @@ import { connect } from "react-redux";
 import InvTable from "../components/Inventory";
 import Navbar from "../components/Navbar";
 
-
 class Inventory extends Component {
-
   render() {
-
     return (
       <>
-      <Navbar />
+        <Navbar />
         <div className="invRow">
           <div className="mainWrapper col m10 offset-m1 center-align">
             <h4>
               <b>Current Inventory</b>
             </h4>
-          <InvTable />
+            <InvTable />
           </div>
-
         </div>
       </>
     );
@@ -27,11 +23,11 @@ class Inventory extends Component {
 }
 
 Inventory.propTypes = {
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
-  auth: state.auth
+const mapStateToProps = (state) => ({
+  auth: state.auth,
 });
 
 export default connect(mapStateToProps)(Inventory);

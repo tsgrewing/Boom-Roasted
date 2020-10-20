@@ -1,6 +1,6 @@
-/* .row .center-align .collection{
-    border: 1px solid black
-} */
+.msgTitle {
+    margin-top: 2em;
+}
 .collection .collection-item{
     background-color: transparent;
 }
@@ -20,18 +20,11 @@
 }
 
 h3 {
-    color: black;  /* Fallback: assume this color ON TOP of image */
-    /* background: url("../../assets/images/coffee.jpg") no-repeat;
+    color: white;  /* Fallback: assume this color ON TOP of image */
+    /* background: url("../../assets/images/cherry4.jpg") no-repeat;
     background-size: cover;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-color: white; */
+    font-size: 57px;
  }
-
- /* .msgTitle {
-     background-color: transparent;
- }
-
- .messageBoard {
-     background-color: transparent;
- } */

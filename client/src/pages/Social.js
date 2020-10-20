@@ -5,14 +5,12 @@ import Messages from "../components/Messages";
 import Navbar from "../components/Navbar";
 
 class Social extends Component {
-
   render() {
-
     return (
       <>
-      <Navbar />
+        <Navbar />
         <div className="row mainRow">
-          <div className="mainWrapper col s10 offset-s1 center-align">
+          <div className="mainWrapper socialWrapper col s10 offset-s1 center-align">
             <Messages />
           </div>
         </div>
@@ -22,11 +20,11 @@ class Social extends Component {
 }
 
 Social.propTypes = {
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
-  auth: state.auth
+const mapStateToProps = (state) => ({
+  auth: state.auth,
 });
 
 export default connect(mapStateToProps)(Social);

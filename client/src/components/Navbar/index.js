@@ -104,9 +104,9 @@ class Navbar extends Component {
                 </Link>
 
                 <ReactTooltip
-                className="navToolTip"
-                place="bottom"
-                type="success"
+                  className="navToolTip"
+                  place="bottom"
+                  type="success"
                 />
 
                 {isLoggedIn && <Logout />}
