@@ -51,14 +51,6 @@ app.use("/api/coffees", coffees)
 app.use("/api/messages", messages)
 app.use("/api/roasts", roasts)
 
-// Serve Static assets if in production environment
-// if (process.env.NODE_ENV === "production") {
-//   console.log(NODE_ENV)
-// }
-// else {
-//   console.log(NODE_ENV)
-// }
-
 app.get('*', (request, response) => {
 	response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
