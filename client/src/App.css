@@ -16,11 +16,7 @@ main {
     background-image: url("./assets/images/burlap.jpg");
 }
 
-.main-wrapper {
-    overflow: auto;
-    margin-top: 15px;
-    height: "75vh" 
-}
+
 
 html {
     display: flex;

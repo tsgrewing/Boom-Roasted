@@ -66,6 +66,13 @@ class RoastChart extends Component {
                     // max: "20:00",
                     source: 'data'
                 },
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: false,
+                        min: 100,
+                        max: 500
+                    }
+                }],
                 xAxes: [{
                     ticks: {
                         beginAtZero: true
