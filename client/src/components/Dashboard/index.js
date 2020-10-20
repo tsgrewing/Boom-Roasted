@@ -23,13 +23,13 @@ class Dashboard extends Component {
   };
 
   // Scrape daily coffee news for headlines
-  getNews = async() => {
-    axios.get(`https://dailycoffeenews.com/`)
-    .then(res => {
-      console.log(res.data)
-    })
-    .catch(err => {console.log(err)})
-  }
+  // getNews = async() => {
+  //   axios.get(`https://dailycoffeenews.com/`)
+  //   .then(res => {
+  //     console.log(res.data)
+  //   })
+  //   .catch(err => {console.log(err)})
+  // }
 
   // Load the  most recent messages from the database
   getRecentMsgs= async()=> {
@@ -56,7 +56,7 @@ class Dashboard extends Component {
     this.getHistory();
     this.getInventory();
     this.getRecentMsgs();
-    this.getNews()
+    // this.getNews()
   }
 
   render() {
