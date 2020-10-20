@@ -7,6 +7,8 @@ Boom, Roasted was created to assist small scale commercial coffee roasters and a
 ## Table of Contents
 [Demo](#Demo)
 
+[Development](#Development)
+
 [Usage](#Usage)
 
 [License](#License)
@@ -16,9 +18,32 @@ Boom, Roasted was created to assist small scale commercial coffee roasters and a
 [Questions](#Questions)
   
 ## Demo
-![Demo](/demo/demo.gif)
+![Demo](/client/src/assets/images/demo.gif)
 
-  
+## Development
+This App uses:
+MERN Stack(MongoDb, Express, React, Node.js)
+- [bcryptjs](https://www.npmjs.com/package/bcryptjs)
+- [chart.js](https://www.chartjs.org/)
+- [Materialize css](https://materializecss.com/)
+- [Mongoose](https://mongoosejs.com/)
+- [Passport](http://www.passportjs.org/)
+- [React-Compound-Timer](https://github.com/volkov97/react-compound-timer)
+- [React-Chartjs-2](https://github.com/jerairrest/react-chartjs-2)
+- [React-Tooltip](https://github.com/wwayne/react-tooltip)
+- Thanks to [Rishi Prasad](https://github.com/rishipr) for his [walkthrough](https://blog.bitsrc.io/build-a-login-auth-app-with-mern-stack-part-1-c405048e3669) on implementing authorization in a MERN app.
+
+## Future Development
+Plans for future development include:
+- Building out the roast logging aspect to be more in depth and account for events like gas adjustments and air flow changes
+- Making the inventory and roast history lists sortable by name/date/weight/etc
+- Adding a rating system in teh roast history section
+- Adding the ability to compare roasts and star particularly good batches
+- Adding a direct message capability to help facilitate coffee trades 
+- Add a news section at the bottom of the dashboard that displays recent news from the coffee industry
+- Adding pagination to messages, roast history, and inventory
+- Add a feature that would allow for pre-roast blends
+
 ## Usage
 Deployed site can be found [here](https://boom-roasted.herokuapp.com/)
   
