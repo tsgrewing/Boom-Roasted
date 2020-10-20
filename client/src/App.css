@@ -17,7 +17,6 @@ main {
 }
 
 
-
 html {
     display: flex;
     min-height: 100vh;
@@ -57,3 +56,11 @@ footer {
     background-image: url("../src/assets/images/cherry4.jpg");
     background-position-y:99%;
 }
+
+@media only screen and (min-width: 601px) {
+    .invRow {
+        margin-right: auto;
+        margin-left: auto;
+        width: 75vw;
+    }
+  }

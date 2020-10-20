@@ -12,8 +12,8 @@ class Inventory extends Component {
     return (
       <>
       <Navbar />
-        <div className="row mainRow">
-          <div className="mainWrapper col s10 offset-s1 center-align">
+        <div className="invRow">
+          <div className="mainWrapper col m10 offset-m1 center-align">
             <h4>
               <b>Current Inventory</b>
             </h4>

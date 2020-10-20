@@ -93,7 +93,7 @@ class PastDetails extends Component {
             }
             
             return (
-                <div className="HistTableWrapper col s8">
+                <div className="HistTableWrapper col m8">
                     {/* chart to display the roast curve of the selected batch */}
                     <div className="row past-chart-wrapper">
                         <Line

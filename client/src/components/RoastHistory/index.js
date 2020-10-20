@@ -26,7 +26,7 @@ class RoastHistory extends Component {
         const historyList = this.state.history;
 
         return (
-            <div className="HistTableWrapper col s4">
+            <div className="HistTableWrapper col m4">
                 <table className="centered highlight bordered">
                     <thead>
                     <tr>

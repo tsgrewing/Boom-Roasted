@@ -49,7 +49,7 @@ class History extends Component {
       <>
         <Navbar />
         <div className="row mainRow">
-          <div className="col mainWrapper s10 offset-s1 center-align">
+          <div className="col mainWrapper s12 m10 offset-m1 center-align">
             <h4>
               <b>Roast History</b>
             </h4>

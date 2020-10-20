@@ -44,7 +44,7 @@ class InvTable extends Component {
             <div className="InvTableWrapper">
 
                 <div className="row left-align ">
-                    <div className="switch col s6 ">
+                    <div className="switch col m6 ">
                         <label>
                         Active Only
                         <input type="checkbox"  value={this.state.listStatus} onChange={e => this.updateList(e)}/>
@@ -57,7 +57,7 @@ class InvTable extends Component {
                     <AddGreen 
                     updateInv={this.getInventory}/>
                 </div>
-                <table className="centered highlight">
+                <table className="centered highlight responsive-table">
                     <thead>
                     <tr>
                         <th>Coffee Name</th>
