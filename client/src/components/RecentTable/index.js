@@ -5,7 +5,7 @@ class RecentTable extends Component {
   render() {
     
     return (
-        <div className="col l3 recentTable">
+        <div className="col recentTable">
             <h5 className="center-align">{this.props.title}</h5>
             <hr></hr>
             <table className="highlight responsive-table">

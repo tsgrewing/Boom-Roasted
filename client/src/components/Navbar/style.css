@@ -27,3 +27,7 @@
     background-image: url("../../assets/images/cherry.JPG");
 }
 
+#mobileMenuLink {
+    background-color: transparent;
+    color: white;
+}

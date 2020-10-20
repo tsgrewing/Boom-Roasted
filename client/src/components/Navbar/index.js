@@ -29,7 +29,7 @@ class Navbar extends Component {
         <nav className="z-depth-0">
           <div className="nav-wrapper green center">
           {/* eslint-disable-next-line */}
-          <a href="#" data-target="mobile-menu" className="sidenav-trigger green btn-flat show-on-med-and-down"><i className="material-icons">menu</i></a>
+          <a href="#" data-target="mobile-menu" id="mobileMenuLink" className="sidenav-trigger btn-flat show-on-med-and-down"><i className="material-icons">menu</i></a>
           <div className="center hide-on-med-and-down">
           
             <Link to="/dashboard" style={{fontFamily: "monospace"}} className="col navLinkContainer">
