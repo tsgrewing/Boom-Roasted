@@ -97,9 +97,11 @@ class PastDetails extends Component {
 
       return (
         <div className="HistTableWrapper col m8">
+
           {/* rating range selector */}
-          <form action="#">
+          {/* <form action="#">
             <p className="range-field">
+            <label>Score</label>
               <input
                 className="green"
                 type="range"
@@ -108,9 +110,9 @@ class PastDetails extends Component {
                 min="0"
                 max="100"
               />
-              <label></label>
             </p>
-          </form>
+          </form> */}
+          
           {/* chart to display the roast curve of the selected batch */}
           <div className="row past-chart-wrapper">
             <Line data={chartData} options={chartOptions} />
