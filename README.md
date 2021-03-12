@@ -37,7 +37,7 @@ MERN Stack(MongoDb, Express, React, Node.js)
 Plans for future development include:
 - Building out the roast logging aspect to be more in depth and account for events like gas adjustments and air flow changes
 - Making the inventory and roast history lists sortable by name/date/weight/etc
-- Adding a rating system in teh roast history section
+- Adding the ability to rate each roast on a 0-5 start scale
 - Adding the ability to compare roasts and star particularly good batches
 - Adding a direct message capability to help facilitate coffee trades 
 - Add a news section at the bottom of the dashboard that displays recent news from the coffee industry
